@@ -1,0 +1,9 @@
+#!/bin/bash
+# Control Center v1 by Diamond
+
+echo "ThinkPad x220 Control Center Options:"
+echo " [1] - Performance mode"
+echo " [2] - Power saving mode"
+echo " [3] - Drop caches"
+
+read $i in
