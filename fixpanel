@@ -1,2 +1,9 @@
 #!/bin/bash
+clear
+echo "select all 3 panels"
 wmctrl -r :SELECT: -b add,below
+wmctrl -r :SELECT: -b add,below
+wmctrl -r :SELECT: -b add,below
+echo "done!"
+sleep .3;
+clear
