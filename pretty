@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 # pfetch - Simple POSIX sh fetch script.
+clear
 
 log() {
     # The 'log()' function handles the printing of information.
