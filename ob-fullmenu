@@ -1,0 +1,2 @@
+cp ~/.config/openbox menu.xml menubackup.xml
+cp ~/.config/openbox fullmenu.xml menu.xml

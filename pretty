@@ -153,7 +153,7 @@ get_os() {
             # by shipping unmodified identification files and packages
             # from their respective upstreams.
             if command -v lsb_release; then
-                distro="debian buster"
+                distro="Debian GNU/Linux 10 (buster)"
 
             # Android detection works by checking for the existence of
             # the follow two directories. I don't think there's a simpler
@@ -284,7 +284,7 @@ get_kernel() {
 
         *)
             # '$kernel' is the cached output of 'uname -r'.
-            log kernel "4.19" >&6
+            log kernel "$kernel" >&6
         ;;
    esac
 }
@@ -355,7 +355,7 @@ get_host() {
     done
 
     # '$arch' is the cached output from 'uname -m'.
-    log host "thinkpad-x220" >&6
+    log host "phoenix" >&6
 }
 
 get_uptime() {
