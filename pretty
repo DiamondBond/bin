@@ -1,7 +1,6 @@
 #!/bin/sh
 #
 # pfetch - Simple POSIX sh fetch script.
-clear
 
 log() {
     # The 'log()' function handles the printing of information.
@@ -102,7 +101,7 @@ log() {
 get_title() {
     # Username is retrieved by first checking '$USER' with a fallback
     # to the 'id -un' command.
-    user="diamond"
+    user="e"
 
     # Hostname is retrieved by first checking '$HOSTNAME' with a fallback
     # to the 'hostname' command.
@@ -355,7 +354,7 @@ get_host() {
     done
 
     # '$arch' is the cached output from 'uname -m'.
-    log host "phoenix" >&6
+    log host "thinkpad-x220" >&6
 }
 
 get_uptime() {
