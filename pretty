@@ -152,7 +152,7 @@ get_os() {
             # by shipping unmodified identification files and packages
             # from their respective upstreams.
             if command -v lsb_release; then
-                distro="Debian GNU/Linux 10 (buster)"
+                distro="Debian 10.1"
 
             # Android detection works by checking for the existence of
             # the follow two directories. I don't think there's a simpler

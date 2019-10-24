@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~/games/RSC
+java -jar OpenRSC.jar
