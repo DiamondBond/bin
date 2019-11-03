@@ -1,0 +1,10 @@
+#!/bin/sh
+echo $(lsb_release -d)
+echo $(dpkg -l | grep -c ^i) "pkgs are installed"
+echo "RAM:" $(awk '/MemFree/ { printf "%.1f \n", $2/1024/1024 }' /proc/meminfo) "free of" $(awk '/MemTotal/ { printf "%.1f \n", $2/1024/1024 }' /proc/meminfo)
+echo 
+echo "You've been" $(uptime -p)
+
+echo 
+
+echo $(fortune)
