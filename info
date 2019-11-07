@@ -1,8 +1,10 @@
 #!/bin/sh
+echo "Host:" $(cat /etc/hostname)
 echo $(lsb_release -d)
-echo $(dpkg -l | grep -c ^i) "pkgs are installed"
+echo "Kernel:" $(uname -rs)
+echo "Pkg count:" $(dpkg -l | grep -c ^i)
 echo "RAM:" $(awk '/MemFree/ { printf "%.1f \n", $2/1024/1024 }' /proc/meminfo) "free of" $(awk '/MemTotal/ { printf "%.1f \n", $2/1024/1024 }' /proc/meminfo)
-echo 
-echo "You've been" $(uptime -p)
+echo $(uptime -p)
 echo 
 echo $(fortune)
+sleep 9999

@@ -1,0 +1,3 @@
+#!/bin/bash
+killall xfce4-notifyd
+dunst &

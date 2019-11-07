@@ -1,2 +1,2 @@
 #!/bin/sh
-notify-send `date +'%I:%M'`
+notify-send "time" `date +'%I:%M'`
