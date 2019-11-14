@@ -343,9 +343,9 @@ get_host() {
         # found in the "blacklist" below. Only non-matches are appended
         # to the final host string.
         case $word in
-            To      | [Bb]e      | [Ff]illed | by     | O.E.M.  | OEM  |\
+            To      | [Bb]e      | [Ff]illed | [Bb]y  | O.E.M.  | OEM  |\
             Not     | Applicable | Specified | System | Product | Name |\
-            Version | Undefined  | Default   | string | INVALID | �    )
+            Version | Undefined  | Default   | string | INVALID | �    | os )
                 continue
             ;;
         esac
@@ -438,12 +438,14 @@ get_pkgs() {
             Linux*)
                 # Commands which print packages one per line.
                 has bonsai     && bonsai list
+                has crux       && pkginfo -i
                 has pacman-key && pacman -Qq
                 has dpkg       && dpkg-query -f '.\n' -W
                 has rpm        && rpm -qa
                 has xbps-query && xbps-query -l
                 has apk        && apk info
                 has guix       && guix package --list-installed
+                has opkg       && opkg list-installed
 
                 # Directories containing packages.
                 has kiss       && printf '%s\n' /var/db/kiss/installed/*/
@@ -508,7 +510,7 @@ get_pkgs() {
         esac | wc -l
     `
 
-    log pkgs "${packages:-?}" >&6
+    [ "$packages" -gt 1 ] && log pkgs "$packages" >&6
 }
 
 get_memory() {
@@ -551,7 +553,7 @@ get_memory() {
             # split is used on '.' to filter it out.
             while IFS=:. read -r key val; do
                 case $key in
-                    *wired*|*active*|*occupied*)
+                    *' wired'*|*' active'*|*' occupied'*)
                         mem_used=$((mem_used + ${val:-0}))
                     ;;
                 esac
@@ -708,7 +710,7 @@ get_wm() {
             # atom..
             #
             # List of window managers which fail to set the name atom:
-            # catwm, fvwm, dwm, 2bwm and monster.
+            # catwm, fvwm, dwm, 2bwm, monster, wmaker and sowm [mine! ;)].
             #
             # The final downside to this approach is that it does _not_
             # support Wayland environments. The only solution which supports
@@ -780,7 +782,40 @@ get_wm() {
                         wm=${wm%%\"*}
                     ;;
 
-                    *)  wm= ;;
+                    *)
+                        # Fallback to checking the process list
+                        # for the select few window managers which
+                        # don't set '_NET_WM_NAME'.
+                        #
+                        # TODO: This is currently limited to 'grep'
+                        #       implementations providing the '-o'
+                        #       flag. This needs to be replaced with
+                        #       a command which searches for a list
+                        #       of strings and returns _only_ the
+                        #       first match's contents (also ensuring
+                        #       the search itself isn't matched).
+                        #
+                        #       A generic parser isn't possible as
+                        #       the output of 'ps' is _not_ the same
+                        #       between implementations and across
+                        #       operating systems.
+                        #
+                        #       The simple search method above works
+                        #       regardless of 'ps' implementation.
+                        #
+                        # Disable the shellcheck warning about using
+                        # 'pgrep' instead of 'ps | grep' as 'pgrep'
+                        # is not always available.
+                        # shellcheck disable=2009
+                        wm=$(ps x | grep -o \
+                                         -e '[c]atwm' \
+                                         -e '[f]vwm' \
+                                         -e '[d]wm' \
+                                         -e '[2]bwm' \
+                                         -e '[m]onsterwm' \
+                                         -e '[w]maker' \
+                                         -e '[s]owm')
+                    ;;
                 esac
             }
         ;;
@@ -887,13 +922,13 @@ get_ascii() {
 
         [Aa]rch*)
             read_ascii 4 <<-EOF
-				${c6}      /\\
-				     /^^\\
-				    /\\   \\
-				   /${c7}  __  \\
-				  /  (  )  \\
-				 / __|  |__\\\\
-				///        \\\\\\
+			${c6}       /\\
+				      /  \\
+				     /\\   \\
+			${c4}    /      \\
+				   /   ,,   \\
+				  /   |  |  -\\
+				 /_-''    ''-_\\
 			EOF
         ;;
 
@@ -982,13 +1017,12 @@ get_ascii() {
 
         [Ff]ree[Bb][Ss][Dd]*)
             read_ascii 1 <<-EOF
-				${c1} /\\ _____ /\\
-				 \\_)     (_/
-				 /         \\
+				${c1}/\\,-'''''-,/\\
+				\\_)       (_/
 				|           |
 				|           |
-				 \         /
-				  --_____--
+				 ;         ;
+				  '-_____-'
 			EOF
         ;;
 
@@ -1303,7 +1337,7 @@ get_ascii() {
     # This ensures that any variables defined in the while loop
     # are still accessible in the script.
     done <<-EOF
-		$(printf %s "$ascii" | sed 's/\[3.m//g')
+ 		$(printf %s "$ascii" | sed 's/\[3.m//g')
 	EOF
 
     # Add a gap between the ascii art and the information.
@@ -1325,6 +1359,11 @@ main() {
     # Hide 'stdout' and selectively print to it using '>&6'.
     # This gives full control over what it displayed on the screen.
     exec 6>&1 >/dev/null
+
+    # Ensure that the 'TMPDIR' is writable as heredocs use it and
+    # fail without the write permission. This was found to be the
+    # case on Android where the temporary directory requires root.
+    [ -w "${TMPDIR:-/tmp}" ] || export TMPDIR=~
 
     # Generic color list.
     # Disable warning about unused variables.
