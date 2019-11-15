@@ -1,2 +1,3 @@
 #!/bin/bash
 amixer set Master toggle
+notify-send "mute"

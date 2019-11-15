@@ -1,0 +1,4 @@
+#!/bin/sh
+CPU_T=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input)
+CPU_TEMP=$(expr "$CPU_T" / 1000)
+echo $CPU_TEMP"C"
