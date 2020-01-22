@@ -1,0 +1,6 @@
+#feh --bg-scale ~/Pictures/Wallpapers/lightiles.jpg
+cp ~/.config/tint2/FLOAT ~/.config/tint2/tint2rc
+killall compton
+#compton -bcG
+killall tint2
+tint2 &

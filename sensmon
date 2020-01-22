@@ -1,0 +1,2 @@
+#!/bin/bash
+xfce4-terminal --title Sensors --geometry 60x16 -e "watch -n .1 sensors"

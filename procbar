@@ -1,2 +1,2 @@
 #!/bin/bash
-xfce4-terminal -e htop --title "Process Bar" --geometry=64x8
+xfce4-terminal --title "Resource Monitor" --geometry 64x8 -e htop 

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+TOGGLE=$HOME/.toggle
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    cp ~/.config/tint2/FLOAT ~/.config/tint2/tint2rc
+    killall compton
+    #compton -bcG
+    killall tint2
+    tint2 &
+else
+    rm $TOGGLE
+    cp ~/.config/tint2/DOCK ~/.config/tint2/tint2rc
+    killall compton
+    killall tint2
+    tint2 &
+fi

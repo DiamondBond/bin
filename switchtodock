@@ -1,0 +1,5 @@
+#!/bin/bash
+cp ~/.config/tint2/ASK_DOCK ~/.config/tint2/tint2rc
+killall tint2
+sleep 0.5
+tint2 &

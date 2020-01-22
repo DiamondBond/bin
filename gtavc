@@ -1,0 +1,4 @@
+#!/bin/bash
+clear
+wine /home/diamond/games/Vice\ City/gta-vc.exe &
+

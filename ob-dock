@@ -1,0 +1,4 @@
+cp ~/.config/tint2/DOCK ~/.config/tint2/tint2rc
+killall compton
+killall tint2
+tint2 &
