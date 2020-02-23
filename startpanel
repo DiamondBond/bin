@@ -1,4 +1,7 @@
 killall tint2
-tint2 -c ~/.config/tint2/PILLS/clock &
-tint2 -c ~/.config/tint2/PILLS/pager &
-tint2 -c ~/.config/tint2/PILLS/center &
+#tint2 -c ~/.config/tint2/PILLS/clock &
+#tint2 -c ~/.config/tint2/PILLS/pager &
+#tint2 -c ~/.config/tint2/PILLS/center &
+tint2 -c ~/.SPLIT1 &
+sleep 1;
+tint2 -c ~/.SPLIT2 &
