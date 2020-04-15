@@ -1,1 +1,1 @@
-echo $((($(date +%s)-$(date +%s --date "1999-12-03"))/(3600*24))) days on earth
+echo $((($(date +%s)-$(date +%s --date "1999-12-03"))/(3600*24))) #days on earth

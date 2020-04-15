@@ -1,0 +1,5 @@
+#!/bin/sh
+# Low power SATA
+for i in /sys/class/scsi_host/*/link_power_management_policy ; do
+      echo min_power > ${i}
+done

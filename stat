@@ -1,2 +1,2 @@
 #!/bin/sh
-notify-send "$(/home/diamond/bin/cputemp) | $(/home/diamond/bin/battery) | $(date +%F) $(date +%I:%M\ %P)"
+notify-send "temp: $(/home/diamond/bin/cputemp) | batt: $(/home/diamond/bin/battery) | time: $(date +%I:%M) "

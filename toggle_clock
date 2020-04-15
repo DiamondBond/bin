@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_clock
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    /home/diamond/bin/clock.sh
+else
+    rm $TOGGLE
+    killall clock.sh
+fi
