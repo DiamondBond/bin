@@ -2,7 +2,6 @@
 echo "Host:" $(cat /etc/hostname)
 echo "Distro:" $(lsb_release -sd)
 echo "Kernel:" $(uname -rs)
-echo "Interface: XFCE"
 echo "Pkgs:" $(dpkg -l | grep -c ^i)
 echo $(uptime --pretty)
 #echo $(fortune)
