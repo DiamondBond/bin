@@ -1,4 +1,4 @@
 killall tint2
-tint2 -c /home/diamond/.config/tint2/ben/1 &
-tint2 -c /home/diamond/.config/tint2/ben/2 &
-tint2 -c /home/diamond/.config/tint2/ben/3 &
+tint2 -c /home/diamond/.config/tint2/3pan/1 &
+tint2 -c /home/diamond/.config/tint2/3pan/2 &
+tint2 -c /home/diamond/.config/tint2/3pan/3 &
