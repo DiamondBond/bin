@@ -1,0 +1,15 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_systray
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    cp /home/diamond/.config/tint2/3pan/2_t /home/diamond/.config/tint2/3pan/2
+    killall tint2
+    bash -ic startpanel
+else
+    rm $TOGGLE
+    cp /home/diamond/.config/tint2/3pan/2_nt /home/diamond/.config/tint2/3pan/2
+    killall tint2
+    bash -ic startpanel
+fi
