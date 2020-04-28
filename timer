@@ -8,6 +8,8 @@ end_time = time.time()
 time_lapsed = end_time - start_time
 print(time_lapsed)
 
-file = open("/home/diamond/time.txt", "a")
+file = open("time.txt", "a")
 file.write(str(time_lapsed) + "\n")
 file.close()
+
+print()
