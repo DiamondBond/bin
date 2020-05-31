@@ -1,0 +1,12 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_dwm_tray
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    killall stalonetray
+    stalonetray &
+else
+    rm $TOGGLE
+    killall stalonetray
+fi

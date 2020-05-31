@@ -7,7 +7,7 @@
 # user is already defined
 host="$(hostname)"
 os="Debian $(cat /etc/debian_version)"
-kernel="Linux 5.4.0"
+kernel="$(uname -r)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(dpkg -l | grep -c ^i)"
 shell="$(basename "$SHELL")"

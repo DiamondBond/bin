@@ -1,2 +1,2 @@
 #!/bin/bash
-xterm -e ncmpcpp
+xterm -geometry 55x15 -e ncmpcpp

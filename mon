@@ -5,4 +5,7 @@ CPU_T3=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input)
 CPU_T=$(expr "$CPU_T1" + "$CPU_T2" + "$CPU_T3")
 CPU_TA=$(expr "$CPU_T" / 3)
 CPU_TEMP=$(expr "$CPU_TA" / 1000)
-echo $CPU_TEMP"C"
+echo $CPU_TEMP "C"
+echo ""
+cpupower frequency-info
+
