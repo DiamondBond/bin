@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -f ~/.mpd/mpd.db
+sleep 1;
+mpd &
