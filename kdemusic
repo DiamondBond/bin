@@ -1,0 +1,2 @@
+#!/bin/sh
+konsole -p 'TerminalColumns=55' -p 'TerminalRows=15' -e "ncmpcpp"
