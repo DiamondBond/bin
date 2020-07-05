@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_animations
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    gsettings set org.gnome.desktop.interface enable-animations false
+else
+    rm $TOGGLE
+    gsettings set org.gnome.desktop.interface enable-animations true
+fi
