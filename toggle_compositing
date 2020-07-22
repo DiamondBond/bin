@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_compositing
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    xfconf-query -c xfwm4 -p /general/use_compositing -s true
+else
+    rm $TOGGLE
+    xfconf-query -c xfwm4 -p /general/use_compositing -s false
+fi

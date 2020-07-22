@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wget -O /tmp/wallpaper.jpg https://source.unsplash.com/1920x1080/?monochrome
+gsettings set org.gnome.desktop.background picture-uri /tmp/wallpaper.jpg
+sleep 1;
+gsettings set org.gnome.desktop.background picture-uri file:///tmp/wallpaper.jpg

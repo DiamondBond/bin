@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_caffeine
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    xset -dpms &
+else
+    rm $TOGGLE
+    xset +dpms &
+fi
