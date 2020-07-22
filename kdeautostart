@@ -1,4 +1,0 @@
-#!/bin/sh
-sleep 1
-xset b off &
-mpd &

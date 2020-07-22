@@ -1,2 +1,6 @@
 #!/bin/sh
+<<<<<<< HEAD
 notify-send "temp: $(/home/diamond/bin/cputemp) | batt: $(/home/diamond/bin/battery) | time: $(date +%I:%M) "
+=======
+notify-send " temp: $(/home/diamond/bin/cputemp) | batt: $(/home/diamond/bin/battery) | time: $(date +%I:%M) $(date +%P) "
+>>>>>>> 9afc438b635fd6ac2270f17d237cbecc0a6720ad
