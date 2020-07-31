@@ -1,0 +1,19 @@
+
+curr=$(xdotool getwindowgeometry `xdotool getactivewindow` | tail -n1 | sed 's/  Geometry: //g')
+width=`echo "$curr" | cut -dx -f1`
+height=`echo "$curr" | cut -dx -f2`
+del=100
+w=$(expr $width - $del)
+h=$(expr $height - $del)
+
+echo "> current:"
+echo $curr
+echo "> old:"
+echo $width
+echo $height
+echo "> new:"
+echo $w
+echo $h
+
+xdotool windowsize `xdotool getactivewindow` $w $h
+

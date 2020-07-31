@@ -1,4 +1,4 @@
 #!/bin/sh
+sleep 1
 xset b off &
-sleep 1;
 mpd &
