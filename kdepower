@@ -1,0 +1,2 @@
+#!/bin/sh
+konsole -e ~/bin/maxperf --title "Entering Performance mode"

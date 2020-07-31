@@ -1,0 +1,12 @@
+#!/bin/bash
+
+TOGGLE=/tmp/toggle_brightness
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    light -I
+else
+    rm $TOGGLE
+    light -O
+    light -S 100
+fi
