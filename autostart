@@ -2,3 +2,4 @@
 xset b off &
 sleep 1;
 mpd &
+emacs --daemon
