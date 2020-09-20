@@ -1,0 +1,4 @@
+#!/bin/bash
+notify-send --urgency=low low
+notify-send --urgency=normal normal
+notify-send --urgency=critical critical

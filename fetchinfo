@@ -1,0 +1,4 @@
+#!/bin/sh
+clear
+neofetch --ascii_distro gentoo
+sleep 9999

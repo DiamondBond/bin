@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TOGGLE=/tmp/toggle_thinklight
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    bash -ic "thinklight_1"
+else
+    rm $TOGGLE
+    bash -ic "thinklight_0"
+fi
