@@ -1,0 +1,4 @@
+#!/bin/bash
+cp ~/.themes/clean/openbox-3/big_themerc ~/.themes/clean/openbox-3/themerc
+cp ~/.config/openbox/gaps.xml ~/.config/openbox/rc.xml
+openbox --reconfigure

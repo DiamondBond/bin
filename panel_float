@@ -1,0 +1,13 @@
+#!/bin/bash
+if pgrep 'tint2' > /dev/null
+then
+    echo "tint2 running"
+    killall tint2
+else
+    echo "tint2 not running"
+fi
+cp /home/diamond/.config/tint2/floatingboii /home/diamond/.config/tint2/tint2rc
+
+#sleep 1;
+tint2 &
+#notify-send "Panel floating"

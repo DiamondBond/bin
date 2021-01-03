@@ -1,5 +1,7 @@
 #!/bin/sh
+#xrandr --output eDP-1 --set "scaling mode" "Full aspect" &
+xrandr --output eDP-1 --set "scaling mode" "Full" &
 xset b off &
-sleep 1;
 mpd &
-emacs --daemon
+sleep 1;
+emacs --daemon &

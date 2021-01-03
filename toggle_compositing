@@ -1,11 +1,24 @@
 #!/bin/bash
 
-TOGGLE=$HOME/.toggle_compositing
+TOGGLE=/tmp/toggle_compositing
 
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
-    xfconf-query -c xfwm4 -p /general/use_compositing -s true
+    #xfconf-query -c xfwm4 -p /general/use_compositing -s true
+    if pgrep 'picom' > /dev/null
+    then
+        echo "picom running"
+        killall picom
+    else
+        echo "picom not running"
+    fi
+    notify-send "Compositing enabled."
+    picom &
 else
     rm $TOGGLE
-    xfconf-query -c xfwm4 -p /general/use_compositing -s false
+    #xfconf-query -c xfwm4 -p /general/use_compositing -s false
+    killall picom;
+    notify-send "Compositing disabled."
 fi
+
+

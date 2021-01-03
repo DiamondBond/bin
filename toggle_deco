@@ -1,0 +1,23 @@
+#!/bin/bash
+TOGGLE=/tmp/deco
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    cd ~/.themes/clean/openbox-3/
+    rm -f *.xbm
+    cd clean
+    cp -r * ..
+    openbox --reconfigure
+
+else
+    rm $TOGGLE
+
+    cd ~/.themes/clean/openbox-3/
+    rm -f *.xbm
+    cd custom 
+    cp -r * ..
+    openbox --reconfigure
+
+fi
+

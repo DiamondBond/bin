@@ -1,0 +1,22 @@
+#!/bin/bash
+
+TOGGLE=/tmp/blur
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    if pgrep 'picom' > /dev/null
+    then
+        echo "picom running"
+        killall picom
+    else
+        echo "picom not running"
+    fi
+
+    notify-send "Blur enabled."
+    picom --blur-method dual_kawase --blur-strength 8 --corner-radius 10.8 & #--experimental-backends &
+else
+    rm $TOGGLE
+    killall picom;
+    notify-send "Blur disabled."
+fi

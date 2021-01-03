@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -f /tmp/blur
+picom --blur-method dual_kawase --blur-strength 8 --corner-radius 10.8 & #--experimental-backends &
+touch /tmp/blur

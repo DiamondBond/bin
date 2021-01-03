@@ -1,0 +1,26 @@
+#!/bin/bash
+
+hsetroot -solid "#bfbfbf"
+ 
+# load lean compositor preset
+cp ~/.config/light_picom.conf ~/.config/picom.conf
+
+# no compositor
+if pgrep 'picom' > /dev/null
+then
+    echo "picom running"
+    killall picom
+else
+    echo "picom not running"
+fi
+#notify-send "Compositing disabled."
+
+# no blur for terminal and rofi
+cp ~/.config/xfce4/terminal/flat ~/.config/xfce4/terminal/terminalrc
+cp ~/.config/rofi/flat.rasi ~/.config/rofi/config.rasi
+
+# docked panel
+/home/diamond/bin/panel_dock
+
+# nopad
+/home/diamond/bin/smallpad

@@ -1,0 +1,27 @@
+#!/bin/bash
+ 
+feh --bg-fill ~/Pictures/Wallpapers/colorsplash.png &
+ 
+# load lean compositor preset
+cp ~/.config/lean_picom.conf ~/.config/picom.conf
+ 
+# no compositor
+if pgrep 'picom' > /dev/null
+then
+    echo "picom running"
+    killall picom
+else
+    echo "picom not running"
+fi
+picom --blur-method dual_kawase --blur-strength 8 --corner-radius 10.8 & #--experimental-backends &
+#notify-send "Compositing enabled."
+
+# blur terminal and rofi
+cp ~/.config/xfce4/terminal/blur ~/.config/xfce4/terminal/terminalrc
+cp ~/.config/rofi/blur.rasi ~/.config/rofi/config.rasi
+
+# floating panel
+/home/diamond/bin/panel_float
+
+# padding
+/home/diamond/bin/bigpad

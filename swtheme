@@ -1,0 +1,16 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.theme.state
+scripts=/home/diamond/bin
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    $scripts/light.sh
+    echo "light theme loaded." > $TOGGLE
+    notify-send "light theme loaded."
+else
+    rm $TOGGLE
+    $scripts/dark.sh
+    #echo "dark theme loaded."
+    notify-send "dark theme loaded."
+fi

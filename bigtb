@@ -1,0 +1,6 @@
+#!/bin/bash
+sed -i 's/padding.height: 4/padding.height: 6/g' ~/.themes/clean/openbox-3/themerc
+
+sed -i 's/padding.width: 4/padding.width: 6/g' ~/.themes/clean/openbox-3/themerc
+
+openbox --reconfigure

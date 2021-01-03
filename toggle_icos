@@ -1,0 +1,39 @@
+#!/bin/bash
+TOGGLE=/tmp/icos
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    sed -i 's/<titleLayout>NLIMC<\/titleLayout>/<titleLayout>LIMC<\/titleLayout>/g' ~/.config/openbox/rc.xml
+    openbox --reconfigure
+
+    if pgrep 'tint2' > /dev/null
+    then
+        echo "tint2 running"
+        killall tint2
+    else
+        echo "tint2 not running"
+    fi
+    sed -i 's/task_icon = 1/task_icon = 0/g' ~/.config/tint2/tint2rc
+    tint2 &
+
+
+else
+    rm $TOGGLE
+
+    sed -i 's/<titleLayout>LIMC<\/titleLayout>/<titleLayout>NLIMC<\/titleLayout>/g' ~/.config/openbox/rc.xml
+    openbox --reconfigure
+
+    if pgrep 'tint2' > /dev/null
+    then
+        echo "tint2 running"
+        killall tint2
+    else
+        echo "tint2 not running"
+    fi
+    sed -i 's/task_icon = 0/task_icon = 1/g' ~/.config/tint2/tint2rc
+    tint2 &
+
+
+fi
+

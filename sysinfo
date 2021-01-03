@@ -2,7 +2,7 @@
 echo "Host:" $(cat /etc/hostname)
 echo "Distro:" $(lsb_release -sd)
 echo "Kernel:" $(uname -rs)
-echo "Pkgs:" $(dpkg -l | grep -c ^i)
+echo "Pkgs:" $(pacman -Q | grep -c .)
 echo $(uptime --pretty)
 #echo $(fortune)
-#sleep 9999
+sleep 9999

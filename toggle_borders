@@ -1,0 +1,20 @@
+#!/bin/bash
+TOGGLE=/tmp/borders
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    sed -i 's/border.width: 1/border.width: 0/g' ~/.themes/clean/openbox-3/themerc
+    openbox --reconfigure
+
+
+else
+    rm $TOGGLE
+
+    sed -i 's/border.width: 0/border.width: 1/g' ~/.themes/clean/openbox-3/themerc
+    openbox --reconfigure
+
+fi
+
+
+

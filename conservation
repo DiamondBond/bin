@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+
+TOGGLE=$HOME/.conserve.state
+
+if [ ! -e $TOGGLE ]; then
+     touch $TOGGLE
+     echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+     notify-send "Battery conservation mode enabled."
+else
+    rm $TOGGLE
+    echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+    notify-send "Battery conservation mode disabled."
+fi

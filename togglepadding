@@ -1,0 +1,20 @@
+#!/bin/bash
+TOGGLE=/tmp/pad
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    cp ~/.themes/clean/openbox-3/small_themerc ~/.themes/clean/openbox-3/themerc
+    cp ~/.config/openbox/nogaps.xml ~/.config/openbox/rc.xml
+    openbox --reconfigure
+
+
+else
+    rm $TOGGLE
+
+    cp ~/.themes/clean/openbox-3/big_themerc ~/.themes/clean/openbox-3/themerc
+    cp ~/.config/openbox/gaps.xml ~/.config/openbox/rc.xml
+    openbox --reconfigure
+
+fi
+

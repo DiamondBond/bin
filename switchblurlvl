@@ -1,0 +1,15 @@
+#!/bin/bash
+TOGGLE=/tmp/blurlvl
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    cp ~/.config/lean_picom.conf ~/.config/picom.conf
+
+else
+    rm $TOGGLE
+
+    cp ~/.config/max_picom.conf ~/.config/picom.conf
+
+fi
+

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+feh --bg-fill ~/Pictures/Wallpapers/colorsplash.png &
+#hsetroot -solid "#bfbfbf"
+ 
+# load lean compositor preset
+cp ~/.config/light_picom.conf ~/.config/picom.conf
+
+# no compositor
+if pgrep 'picom' > /dev/null
+then
+    echo "picom running"
+    killall picom
+else
+    echo "picom not running"
+fi
+picom --corner-radius 10.8 &
+
+# no blur for terminal with rounded rofi
+cp ~/.config/xfce4/terminal/flat ~/.config/xfce4/terminal/terminalrc
+cp ~/.config/rofi/blur.rasi ~/.config/rofi/config.rasi
+
+# docked panel
+/home/diamond/bin/panel_float
+
+# pad & noborder
+/home/diamond/bin/bigpad
+/home/diamond/bin/noborders

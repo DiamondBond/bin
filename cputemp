@@ -2,7 +2,9 @@
 CPU_T1=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input)
 CPU_T2=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input)
 CPU_T3=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp3_input)
-CPU_T=$(expr "$CPU_T1" + "$CPU_T2" + "$CPU_T3")
-CPU_TA=$(expr "$CPU_T" / 3)
+CPU_T4=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp4_input)
+CPU_T5=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp5_input)
+CPU_T=$(expr "$CPU_T1" + "$CPU_T2" + "$CPU_T3" + "$CPU_T4" + "$CPU_T5")
+CPU_TA=$(expr "$CPU_T" / 5)
 CPU_TEMP=$(expr "$CPU_TA" / 1000)
 echo $CPU_TEMP"C"

@@ -1,0 +1,18 @@
+#!/bin/bash
+TOGGLE=/tmp/appbgblur
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    cp ~/.config/xfce4/terminal/blur ~/.config/xfce4/terminal/terminalrc
+    cp ~/.config/rofi/blur.rasi ~/.config/rofi/config.rasi
+
+
+else
+    rm $TOGGLE
+
+    cp ~/.config/xfce4/terminal/flat ~/.config/xfce4/terminal/terminalrc
+    cp ~/.config/rofi/flat.rasi ~/.config/rofi/config.rasi
+
+fi
+

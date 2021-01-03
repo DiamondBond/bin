@@ -1,0 +1,3 @@
+#!/bin/bash
+sed -i 's/border.width: 0/border.width: 1/g' ~/.themes/clean/openbox-3/themerc
+openbox --reconfigure

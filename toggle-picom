@@ -1,0 +1,19 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.picom.state
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    if pgrep -x "picom" > /dev/null
+    then
+         killall picom &
+         picom &
+    else
+        picom &
+    fi
+    notify-send "Compositing enabled."
+else
+    rm $TOGGLE
+    killall picom &
+    notify-send "Compositing disabled."
+fi
