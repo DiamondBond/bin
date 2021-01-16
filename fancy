@@ -25,3 +25,4 @@ cp ~/.config/rofi/blur.rasi ~/.config/rofi/config.rasi
 
 # padding
 /home/diamond/bin/bigpad
+/home/diamond/bin/noborders

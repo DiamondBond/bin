@@ -2,6 +2,6 @@
 #xrandr --output eDP-1 --set "scaling mode" "Full aspect" &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 xset b off &
-mpd &
-sleep 1;
+setxkbmap -option ctrl:nocaps &
 emacs --daemon &
+mpd /home/diamond/.mpd/mpd.conf &

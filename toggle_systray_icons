@@ -1,0 +1,54 @@
+#!/bin/bash
+TOGGLE=~/.systray_icons
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    if pgrep 'pasystray' > /dev/null
+    then
+        echo "pasystray running, everything is fine"
+    else
+        echo "launching pasystray"
+        pasystray &
+    fi
+
+    if pgrep 'nm-applet' > /dev/null
+    then
+        echo "nm-applet running, everything is fine"
+    else
+        echo "launching nm-applet"
+        nm-applet &
+    fi
+
+    # killall xfce4-power-manager
+
+    # #cp ~/.config/xpm_1.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+    # sed -i 's/<property name="show-tray-icon" type="bool" value="false"\/>/<property name="show-tray-icon" type="bool" value="true"\/>/g' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+
+    # sleep 1;
+    # xfce4-power-manager &
+else
+    rm $TOGGLE
+
+    if pgrep 'pasystray' > /dev/null
+    then
+        killall pasystray
+    else
+        echo "nil"
+    fi
+
+    if pgrep 'nm-applet' > /dev/null
+    then
+        killall nm-applet
+    else
+        echo "nil"
+    fi
+
+    # killall xfce4-power-manager
+
+    # #cp ~/.config/xpm_0.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+    # sed -i 's/<property name="show-tray-icon" type="bool" value="true"\/>/<property name="show-tray-icon" type="bool" value="false"\/>/g' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+
+    # sleep 1;
+    # xfce4-power-manager &
+fi
