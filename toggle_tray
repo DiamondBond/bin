@@ -1,11 +1,11 @@
 #!/bin/bash
 
-TOGGLE=$HOME/.toggle_tray
+TOGGLE=/tmp/.toggle_tray
 
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
-    tint2 &
+    stalonetray &
 else
     rm $TOGGLE
-    killall tint2
+    killall stalonetray
 fi

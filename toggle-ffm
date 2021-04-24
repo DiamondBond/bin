@@ -1,0 +1,15 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_ffm
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	echo "focus_follows_mouse yes" >>~/.config/i3/config
+	notify-send "ffm on"
+	i3-msg reload
+else
+	rm $TOGGLE
+	echo "focus_follows_mouse no" >>~/.config/i3/config
+	notify-send "ffm off"
+	i3-msg reload
+fi

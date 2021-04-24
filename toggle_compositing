@@ -8,17 +8,20 @@ if [ ! -e $TOGGLE ]; then
     if pgrep 'picom' > /dev/null
     then
         echo "picom running"
-        killall picom
+        #killall picom
     else
         echo "picom not running"
     fi
+    killall picom
     notify-send "Compositing enabled."
     picom &
+    feh --bg-tile ~/Pictures/Wallpapers/tHqGgP1.jpg &
 else
     rm $TOGGLE
     #xfconf-query -c xfwm4 -p /general/use_compositing -s false
     killall picom;
     notify-send "Compositing disabled."
+    feh --bg-tile ~/Pictures/Wallpapers/tHqGgP1.jpg &
 fi
 
 

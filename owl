@@ -1,0 +1,134 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.color_state
+
+LIGHT_WALLPAPER=/home/diamond/Pictures/Wallpapers/palm.jpg
+DARK_WALLPAPER=/home/diamond/Pictures/Wallpapers/dark.jpg
+
+VLC=default
+VDC=industry
+
+SCREEN=0
+DISPLAY_PORT=eDP-1
+perc=10
+
+echo ""
+
+# if [ ! -e $TOGGLE ]; then
+# 	touch $TOGGLE
+
+# 	# Wallpaper
+# 	echo "Applying light Wallpaper... $perc%"
+# 	for i in {0..9}; do
+# 		xfconf-query -c xfce4-desktop -p /backdrop/screen"$SCREEN"/monitor"$DISPLAY_PORT"/workspace"$i"/last-image -s "$LIGHT_WALLPAPER"
+# 	done
+# 	perc=$((perc + 10))
+
+# 	# GTK
+# 	echo "Applying light GTK theme... $perc%"
+# 	xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita"
+# 	perc=$((perc + 10))
+
+# 	# Openbox
+# 	echo "Applying light Openbox theme... $perc%"
+# 	#cp ~/.config/openbox/white.xml ~/.config/openbox/rc.xml
+# 	#openbox --reconfigure
+# 	perc=$((perc + 10))
+
+# 	# Terminal
+# 	echo "Applying light Terminal theme... $perc%"
+# 	cp ~/.config/xfce4/terminal/whiterc ~/.config/xfce4/terminal/terminalrc
+# 	cp ~/.Xresources_light ~/.Xresources
+# 	xrdb ~/.Xresources
+# 	perc=$((perc + 10))
+
+# 	# Emacs
+# 	echo "Applying light Emacs theme... $perc%"
+# 	emacsclient -e '(modus-themes-light)'
+# 	perc=$((perc + 10))
+
+# 	# VIM
+# 	echo "Applying light VIM theme... $perc%"
+# 	#sed -i "s/^colorscheme.*/colorscheme\\ $VLC/" ~/.vimrc
+# 	#sed -i "s/set\\ background=dark/set\\ background=light/" ~/.vimrc
+# 	perc=$((perc + 10))
+
+# 	# VSCode
+# 	echo "Applying light VSCode theme... $perc%"
+# 	cp ~/.config/Code/User/light_s.json ~/.config/Code/User/settings.json
+# 	perc=$((perc + 10))
+
+# 	# Rofi
+# 	echo "Applying light Rofi theme... $perc%"
+# 	cp ~/.config/rofi/config.rasi ~/.config/rofi/config_bl.rasi
+# 	cp ~/.config/rofi/config_wh.rasi ~/.config/rofi/config.rasi
+# 	perc=$((perc + 10))
+
+# 	# HexChat
+# 	echo "Applying light HexChat theme... $perc%"
+# 	cp ~/.config/hexchat/white_colors.conf ~/.config/hexchat/colors.conf
+# 	perc=$((perc + 10))
+
+# 	echo ""
+# 	echo "Light theme is $perc% applied!"
+# 	notify-send "Day mode enabled."
+# 	echo ""
+# else
+# 	rm $TOGGLE
+
+# 	# Wallpaper
+# 	echo "Applying dark wallpaper... $perc%"
+# 	for i in {0..9}; do
+# 		xfconf-query -c xfce4-desktop -p /backdrop/screen"$SCREEN"/monitor"$DISPLAY_PORT"/workspace"$i"/last-image -s "$DARK_WALLPAPER"
+# 	done
+# 	perc=$((perc + 10))
+
+# 	# GTK
+# 	echo "Applying dark GTK theme... $perc%"
+# 	xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
+# 	perc=$((perc + 10))
+
+# 	# Openbox
+# 	echo "Applying dark Openbox theme... $perc%"
+# 	#cp ~/.config/openbox/black.xml ~/.config/openbox/rc.xml
+# 	#openbox --reconfigure
+# 	perc=$((perc + 10))
+
+# 	# Terminal
+# 	echo "Applying dark Terminal theme... $perc%"
+# 	cp ~/.config/xfce4/terminal/blackrc ~/.config/xfce4/terminal/terminalrc
+# 	cp ~/.Xresources_black ~/.Xresources
+# 	xrdb ~/.Xresources
+# 	perc=$((perc + 10))
+
+# 	# Emacs
+# 	echo "Applying dark Emacs theme... $perc%"
+# 	emacsclient -e '(modus-themes-dark)'
+# 	perc=$((perc + 10))
+
+# 	# VIM
+# 	echo "Applying dark VIM theme... $perc%"
+# 	#sed -i "s/^colorscheme.*/colorscheme\\ $VDC/" ~/.vimrc
+# 	#sed -i "s/set\\ background=light/set\\ background=dark/" ~/.vimrc
+# 	perc=$((perc + 10))
+
+# 	# VSCode
+# 	echo "Applying dark VSCode theme... $perc%"
+# 	cp ~/.config/Code/User/dark_s.json ~/.config/Code/User/settings.json
+# 	perc=$((perc + 10))
+
+# 	# Rofi
+# 	echo "Applying dark Rofi theme... $perc%"
+# 	cp ~/.config/rofi/config_bl.rasi ~/.config/rofi/config.rasi
+# 	perc=$((perc + 10))
+
+# 	# HexChat
+# 	echo "Applying dark HexChat theme... $perc%"
+# 	cp ~/.config/hexchat/black_colors.conf ~/.config/hexchat/colors.conf
+# 	perc=$((perc + 10))
+
+# 	echo ""
+# 	echo "Dark theme is $perc% applied!"
+# 	echo ""
+# 	notify-send "Night mode enabled."
+# fi

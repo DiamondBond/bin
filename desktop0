@@ -1,0 +1,3 @@
+#!/bin/bash
+killall pcmanfm
+feh --bg-tile ~/Pictures/Wallpapers/tHqGgP1.jpg &

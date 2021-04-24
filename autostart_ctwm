@@ -1,0 +1,144 @@
+#!/bin/sh
+
+###
+# Always exec
+###
+
+xrdb ~/.Xresources &
+xrandr --output eDP-1 --primary --mode 1366x768 --set "scaling mode" "Full" &
+xset b off &
+xset m 0/10 1 &
+setxkbmap -option ctrl:nocaps &
+#hsetroot -solid "#505075" &
+hsetroot -solid "#5e9ea0" &
+#feh --bg-fill ~/GNUstep/Library/WindowMaker/Backgrounds/The-Beach.jpg &
+
+xclock -digital -strftime "   %H:%M" -face "Liberation Mono:size=13" -bg '#2c3645' -fg '#fcfcfc' -geometry 119x30-0+0 -padding 5 &
+xload -bg '#2c3645' -fg '#fcfcfc' -nolabel -geometry 119x120-0+30 &
+
+###
+# Daemons
+###
+
+#if pgrep 'pcmanfm' > /dev/null
+#then
+#    echo "pcmanfm desktop running, everything is fine"
+#else
+#    echo "launching pcmanfm desktop"
+#    pcmanfm --desktop &
+#fi
+
+if pgrep 'polkit' >/dev/null; then
+	echo "polkit is running, everything is fine"
+else
+	echo "launching polkit"
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fi
+
+if pgrep 'xfsettingsd' >/dev/null; then
+	echo "xfsettingsd running, everything is fine"
+else
+	echo "launching xfsettingsd"
+	xfsettingsd &
+fi
+
+if pgrep 'dunst' >/dev/null; then
+	echo "dunst running, everything is fine"
+else
+	echo "launching dunst"
+	dunst &
+fi
+
+if pgrep 'light-locker' >/dev/null; then
+	echo "light-locker running, everything is fine"
+else
+	echo "launching light-locker"
+	light-locker &
+fi
+
+if pgrep 'pasystray' >/dev/null; then
+	echo "pasystray running, everything is fine"
+else
+	echo "launching pasystray"
+	pasystray &
+fi
+
+if pgrep 'nm-applet' >/dev/null; then
+	echo "nm-applet running, everything is fine"
+else
+	echo "launching nm-applet"
+	nm-applet &
+fi
+
+if pgrep 'xfce4-power' >/dev/null; then
+	echo "xfce4-power-manager running, everything is fine"
+else
+	echo "launching xfce4-power-manager"
+	xfce4-power-manager &
+fi
+
+if pgrep 'xbindkeys' >/dev/null; then
+	echo "xbindkeys running, everything is fine"
+else
+	echo "launching xbindkeys"
+	xbindkeys &
+fi
+
+if pgrep 'emacs' >/dev/null; then
+	echo "emacs running, everything is fine"
+else
+	echo "launching emacs"
+	emacs --daemon &
+fi
+
+if pgrep 'mpd' >/dev/null; then
+	echo "mpd running, everything is fine"
+else
+	echo "launching mpd"
+	mpd &
+fi
+
+# if pgrep 'libinput-gestures' > /dev/null
+# then
+#     echo "libinput-gestures running, everything is fine"
+# else
+#     echo "launching libinput-gestures"
+#     libinput-gestures &
+# fi
+
+if pgrep 'dropbox' >/dev/null; then
+	echo "dropbox running, everything is fine"
+else
+	echo "launching dropbox"
+	dropbox start -i &
+fi
+
+# if pgrep 'wmCalClock' > /dev/null
+# then
+#     echo "wmCalClock running, everything is fine"
+# else
+#     echo "launching wmCalClock"
+#     wmCalClock &
+# fi
+
+# if pgrep 'wmcpu' > /dev/null
+# then
+#     echo "wmcpu running, everything is fine"
+# else
+#     echo "launching wmcpu"
+#     wmcpu &
+# fi
+
+# if pgrep 'wmsystemtray' > /dev/null
+# then
+#     echo "wmsystemtray running, everything is fine"
+# else
+#     echo "launching wmsystemtray"
+#     wmsystemtray &
+# fi
+
+###
+# End
+###
+
+#notify-send "GNUSTEP WindowMaker initialization complete." &

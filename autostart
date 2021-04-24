@@ -1,7 +1,16 @@
 #!/bin/sh
 #xrandr --output eDP-1 --set "scaling mode" "Full aspect" &
+#feh --bg-fill ~/Pictures/Wallpapers/r/m.jpg &
+#feh --random --bg-fill ~/Pictures/Wallpapers/r/ &
+
+# X11 stuff
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 xset b off &
 setxkbmap -option ctrl:nocaps &
+
+# daemons
 emacs --daemon &
 mpd /home/diamond/.mpd/mpd.conf &
+#picom &
+#plank &
+#conky &

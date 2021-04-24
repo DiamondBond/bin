@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# load lean compositor preset
+#cp ~/.config/light_picom.conf ~/.config/picom.conf
+
+# compositor
+if pgrep 'picom' >/dev/null; then
+	picom &
+	notify-send "picom started"
+	echo 1
+else
+	killall picom
+	notify-send "picom killed"
+	echo 0
+fi

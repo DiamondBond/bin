@@ -1,0 +1,11 @@
+#!/bin/bash
+TOGGLE=/tmp/desktop_state
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	pcmanfm --desktop &
+else
+	rm $TOGGLE
+	killall pcmanfm
+fi
+~

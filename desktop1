@@ -1,0 +1,9 @@
+#!/bin/bash
+if pgrep 'pcmanfm' > /dev/null
+then
+    echo "pcmanfm running"
+else
+    echo "starting pcmanfm"
+    pcmanfm --desktop &
+fi
+
