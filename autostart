@@ -4,9 +4,10 @@
 #feh --random --bg-fill ~/Pictures/Wallpapers/r/ &
 
 # X11 stuff
-xrandr --output eDP-1 --set "scaling mode" "Full" &
+#xrandr --output eDP-1 --set "scaling mode" "Full" &
+xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable
 xset b off &
-setxkbmap -option ctrl:nocaps &
+#setxkbmap -option ctrl:nocaps &
 
 # daemons
 emacs --daemon &
