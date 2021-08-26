@@ -1,0 +1,13 @@
+#!/bin/bash
+TOGGLE=/tmp/themestatus
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    xfconf-query -c xsettings -p /Net/ThemeName -s Adwaita
+else
+    rm $TOGGLE
+
+    xfconf-query -c xsettings -p /Net/ThemeName -s Adwaita-dark
+fi
+
