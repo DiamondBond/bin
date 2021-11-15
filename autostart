@@ -9,6 +9,7 @@ xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xa
 xset b off &
 #setxkbmap -option ctrl:nocaps &
 xrdb /home/diamond/.Xresources &
+#ulimit -c unlimited &
 
 # daemons
 emacs --daemon &
@@ -16,3 +17,4 @@ mpd /home/diamond/.mpd/mpd.conf &
 
 # panel
 #tint2 &
+#conky &

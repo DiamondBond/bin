@@ -15,13 +15,11 @@ if [ ! -e $TOGGLE ]; then
     killall picom
     notify-send "Compositing enabled."
     picom &
-    feh --bg-tile ~/Pictures/Wallpapers/tHqGgP1.jpg &
+    #feh --bg-scale ~/.earth.jpg &
 else
     rm $TOGGLE
     #xfconf-query -c xfwm4 -p /general/use_compositing -s false
     killall picom;
     notify-send "Compositing disabled."
-    feh --bg-tile ~/Pictures/Wallpapers/tHqGgP1.jpg &
+    #feh --bg-scale ~/.earth.jpg &
 fi
-
-

@@ -1,0 +1,10 @@
+#!/bin/bash
+TOGGLE=/tmp/max_state
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	wmctrl -ir $(xdotool getactivewindow) -b add,maximized_vert,maximized_horz
+else
+	rm $TOGGLE
+	wmctrl -ir $(xdotool getactivewindow) -b remove,maximized_vert,maximized_horz
+fi

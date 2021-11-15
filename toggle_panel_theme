@@ -1,0 +1,21 @@
+#!/bin/bash
+TOGGLE=/tmp/panel_theme
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    xfconf-query -c xfce4-panel -p /panels/dark-mode -s true
+    sleep 0.5;
+    xfconf-query -c xsettings -p /Net/IconThemeName -s elementary-xfce
+
+else
+    rm $TOGGLE
+
+    xfconf-query -c xfce4-panel -p /panels/dark-mode -s false
+    sleep 0.5;
+    xfconf-query -c xsettings -p /Net/IconThemeName -s elementary-xfce-dark
+
+fi
+
+
+

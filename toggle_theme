@@ -4,10 +4,9 @@ TOGGLE=/tmp/themestatus
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
 
-    xfconf-query -c xsettings -p /Net/ThemeName -s Adwaita
+    /home/diamond/bin/apply_light
 else
     rm $TOGGLE
 
-    xfconf-query -c xsettings -p /Net/ThemeName -s Adwaita-dark
+    /home/diamond/bin/apply_dark
 fi
-

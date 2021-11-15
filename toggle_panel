@@ -1,11 +1,12 @@
 #!/bin/bash
-TOGGLE=/tmp/panel_state
+TOGGLE=/tmp/toggle_panel
 
 if [ ! -e $TOGGLE ]; then
 	touch $TOGGLE
-	tint2 &
+	#killall xfce4-panel
+	xfce4-panel -q
 else
 	rm $TOGGLE
-	killall tint2
+	killall xfce4-panel
+	sleep 1; xfce4-panel &
 fi
-~

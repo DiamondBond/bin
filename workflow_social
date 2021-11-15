@@ -1,0 +1,4 @@
+#!/bin/bash
+i3-msg 'workspace "10"; exec discord;'; sleep 1;
+i3-msg 'workspace "10"; exec hexchat;'; sleep 1;
+i3-msg 'workspace "10"; exec telegram-desktop;'; sleep 1;

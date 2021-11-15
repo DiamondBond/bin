@@ -1,0 +1,4 @@
+#!/bin/bash
+i3-msg 'workspace "1"; exec firefox;'; sleep 1;
+i3-msg 'workspace "2"; exec /usr/bin/chromium --new-window https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home'; sleep 1;
+i3-msg 'workspace "3"; exec emacsclient -c -n -a "emacs";';sleep 1
