@@ -1,0 +1,8 @@
+#!/bin/bash
+xfconf-query -c xsettings -p /Net/ThemeName -s "Chicago95" &
+xfconf-query -c xsettings -p /Net/IconThemeName -s Chicago95
+xfconf-query -c xfwm4 -p /general/theme -s Chicago95
+emacsclient --eval "(with-current-buffer (window-buffer)(load-theme 'acme t))" &
+emacsclient --eval "(with-current-buffer (window-buffer)(tool-bar-mode 1))" &
+#feh --bg-scale ~/.earth.jpg &
+rm -f ~/.config/rofi/config.rasi

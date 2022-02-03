@@ -1,16 +1,5 @@
 #!/bin/sh
-#xrandr --output eDP-1 --set "scaling mode" "Full aspect" &
-#feh --bg-fill ~/Pictures/Wallpapers/r/m.jpg &
-#feh --random --bg-fill ~/Pictures/Wallpapers/r/ &
-
-# X11 stuff
-xrandr --output eDP-1 --set "scaling mode" "Full" &
+xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xset b off &
-setxkbmap -option ctrl:nocaps &
-
-# daemons
+xrdb -merge ~/.Xresources &
 emacs --daemon &
-mpd /home/diamond/.mpd/mpd.conf &
-#picom &
-#plank &
-#conky &

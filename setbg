@@ -1,0 +1,2 @@
+#!/bin/bash
+feh --bg-center /usr/share/backgrounds/xfce/cumberlandfalls2.jpg --image-bg lightsteelblue

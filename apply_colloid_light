@@ -1,0 +1,3 @@
+#!/bin/bash
+gsettings set org.gnome.desktop.interface gtk-theme 'Colloid-light-compact' &
+emacsclient --eval '(with-current-buffer (window-buffer)(modus-themes-light))' &

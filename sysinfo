@@ -1,8 +1,7 @@
 #!/bin/sh
 echo "Host:" $(cat /etc/hostname)
-echo "Distro:" $(lsb_release -sd)
 echo "Kernel:" $(uname -rs)
-echo "Pkgs:" $(pacman -Q | grep -c .)
+echo "Pkgs:" $(pacman -Q | wc -l)
 echo $(uptime --pretty)
 #echo $(fortune)
 sleep 9999

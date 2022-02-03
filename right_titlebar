@@ -1,0 +1,3 @@
+#!/bin/bash
+#xfconf-query -c xfwm4 -p /general/theme -s "Default" &
+xfconf-query -c xfwm4 -p /general/button_layout -s "O|HMC" &

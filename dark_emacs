@@ -1,0 +1,2 @@
+#!/bin/bash
+emacsclient --eval '(with-current-buffer (window-buffer)(modus-themes-dark))' &

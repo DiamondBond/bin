@@ -1,0 +1,23 @@
+#!/bin/bash
+# Apply Adwaita GTK & Icon Theme
+#xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark" &
+#xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita" &
+xfconf-query -c xfwm4 -p /general/theme -s "BigSur" &
+xfconf-query -c xfwm4 -p /general/button_layout -s "CHM|TSO" &
+
+# Apply Emacs Theme
+emacsclient --eval '(with-current-buffer (window-buffer)(modus-themes-dark))' &
+#emacsclient --eval "(with-current-buffer (window-buffer)(tool-bar-mode 0))" &
+
+# Set Wallpaper
+#feh --bg-scale ~/.earth.jpg &
+#xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP1/workspace0/last-image -s /home/diamond/Pictures/Wallpapers/nasa.png &
+
+# Set Rofi Theme
+#cp ~/.config/rofi/bl.rasi ~/.config/rofi/config.rasi &
+
+# Reload Panel
+#xfce4-panel -q
+#sleep 1; xfce4-panel &
+
+#plank &

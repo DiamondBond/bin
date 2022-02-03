@@ -1,0 +1,12 @@
+#!/bin/bash
+TOGGLE=/tmp/toggle_panel
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	killall xfce4-panel
+	sleep 1; xfce4-panel &
+else
+	rm $TOGGLE
+	killall xfce4-panel
+	sleep 1; xfce4-panel &
+fi

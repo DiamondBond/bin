@@ -1,0 +1,11 @@
+#!/bin/bash
+TOGGLE=/tmp/panel_state
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	tint2 &
+else
+	rm $TOGGLE
+	killall tint2
+fi
+~

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#xdotool windowsize `xdotool getactivewindow` 1746 1342
+xdotool windowsize `xdotool getactivewindow` 1560 1342
+
+bash /home/diamond/bin/windowcenter
+

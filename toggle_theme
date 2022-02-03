@@ -1,0 +1,12 @@
+#!/bin/bash
+TOGGLE=/tmp/themestatus
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+
+    /home/diamond/bin/apply_light
+else
+    rm $TOGGLE
+
+    /home/diamond/bin/apply_dark
+fi

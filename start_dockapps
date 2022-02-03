@@ -1,0 +1,32 @@
+#!/bin/sh
+if pgrep 'wmCalClock' > /dev/null
+then
+    echo "wmCalClock running"
+else
+    echo "launching wmCalClock"
+    wmCalClock &
+fi
+
+if pgrep 'wmcpu' > /dev/null
+then
+    echo "wmcpu running"
+else
+    echo "launching wmcpu"
+    wmcpu &
+fi
+
+# if pgrep 'wmsystemtray' > /dev/null
+# then
+#     echo "wmsystemtray running"
+# else
+#     echo "launching wmsystemtray"
+#     wmsystemtray &
+# fi
+
+if pgrep 'wmcube' > /dev/null
+then
+    echo "wmcube running"
+else
+    echo "launching wmcube"
+    wmcube &
+fi

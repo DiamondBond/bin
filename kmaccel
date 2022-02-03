@@ -1,1 +1,24 @@
-xinput --set-prop 14 'libinput Accel Speed' 0
+#id=$(xinput | grep "Razer Viper Mini  " | grep "pointer" | awk '/id=/ { print $7 }')
+#echo $id
+#xinput --set-prop 9 'libinput Accel Profile Enabled' 0, 1
+
+SEARCH="Razer Razer Viper Mini  "
+
+if [ "$SEARCH" = "" ]; then 
+    exit 1
+fi
+
+ids=$(xinput --list | grep pointer | awk -v search="$SEARCH" \
+    '$0 ~ search {match($0, /id=[0-9]+/);\
+                  if (RSTART) \
+                    print substr($0, RSTART+3, RLENGTH-3)\
+                 }'\
+     )
+
+for i in $ids
+do
+    echo $i
+    xinput set-prop $i 'libinput Accel Profile Enabled' 0, 1
+done
+
+#notify-send "done"
