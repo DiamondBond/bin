@@ -5,9 +5,11 @@ TOGGLE=/tmp/toggle_compositing
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
     xfconf-query -c xfwm4 -p /general/use_compositing -s true
+    notify-send "compositing enabled"
     #picom &
 else
     rm $TOGGLE
     xfconf-query -c xfwm4 -p /general/use_compositing -s false
+    notify-send "compositing disabled"
     #killall picom
 fi

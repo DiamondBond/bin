@@ -1,5 +1,17 @@
 #!/bin/sh
+# X11
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xset b off &
 xrdb -merge ~/.Xresources &
-emacs --daemon &
+
+# Pulseaudio
+pactl set-default-sink 0 &
+
+# Emacs
+if pgrep 'emacs' > /dev/null
+then
+    echo "emacs running, everything is fine"
+else
+    echo "launching emacs"
+    emacs --daemon &
+fi

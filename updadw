@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/git/adw-gtk3
+git pull
+sudo ninja -C build install

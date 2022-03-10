@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if pgrep 'mpd' > /dev/null
+then
+    echo "mpd running, everything is fine"
+else
+    echo "launching mpd"
+    mpd &
+fi
+
+xfce4-terminal -e ncmpcpp

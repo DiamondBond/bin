@@ -1,4 +1,4 @@
-yay -S pasystray
+yay -S pasystray dunst
 yay -R touchegg
 
 cd ~/git/libinput-gestures

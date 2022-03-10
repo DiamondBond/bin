@@ -1,0 +1,34 @@
+#!/bin/sh
+
+killall compton
+compton \
+        --config /dev/null \
+        --backend "glx" \
+        --vsync "opengl-swc" \
+        --detect-rounded-corners \
+        --detect-client-leader \
+        --detect-transient \
+        --detect-client-opacity \
+        --paint-on-overlay \
+        --glx-no-stencil \
+        --glx-swap-method undefined \
+        --unredir-if-possible \
+        --unredir-if-possible-exclude "class_g = 'Mate-screensaver'" \
+        --inactive-opacity-override \
+        --mark-wmwin-focused \
+        --mark-ovredir-focused \
+        --use-ewmh-active-win \
+        --shadow-exclude "! name~=''" \
+        --shadow-exclude "name = 'Notification'" \
+        --shadow-exclude "name = 'Plank'" \
+        --shadow-exclude "name = 'Docky'" \
+        --shadow-exclude "name = 'Kupfer'" \
+        --shadow-exclude "name *= 'compton'" \
+        --shadow-exclude "class_g = 'albert'" \
+        --shadow-exclude "class_g = 'Conky'" \
+        --shadow-exclude "class_g = 'Kupfer'" \
+        --shadow-exclude "class_g = 'Synapse'" \
+        --shadow-exclude "class_g ?= 'Notify-osd'" \
+        --shadow-exclude "class_g ?= 'Cairo-dock'" \
+        --shadow-exclude "class_g = 'Cairo-clock'" \
+        --shadow-exclude "_GTK_FRAME_EXTENTS@:c" &

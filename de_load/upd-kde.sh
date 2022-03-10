@@ -4,7 +4,10 @@
 
 yay -S plasma sddm ark cantor dolphin dolphin-plugins elisa ffmpegthumbs kalgebra kapman kate kbreakout kcalc kcolorchooser kcharselect kdeconnect kde-dev-scripts kde-dev-utils kdenetwork-filesharing kdenlive kdepim-addons kdesdk-thumbnailers kio-extras kigo kleopatra knotes kipi-plugins knights konsole krdc ksystemlog kubrick okular sweeper spectacle khtml chmlib calligra
 
+yay -S kitinerary kmbox kpkpass ksmtp ktnef akonadi akonadi-notes kidentitymanagement kalarmcal kcalutils
+
 yay -S akonadi-import-wizard akonadi-calendar kmailtransport calendarsupport kdepim-runtime libksieve messagelib eventviews mailcommon incidenceeditor
+yay -S kuserfeedback
 
 yay -S ffmpegthumbs chmlib
 

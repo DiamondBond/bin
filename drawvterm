@@ -23,13 +23,13 @@ if [ "$W" -gt "1" ]; then
     let W=$(( $W / 7 ))-2
     let H=$(( $H / 15 ))-1
 
-    urxvt -g $W"x"$H"+"$X"+"$Y &
+    #urxvt -g $W"x"$H"+"$X"+"$Y &
     #xfce4-terminal --geometry $W"x"$H"+"$X"+"$Y &
 	#emacsclient -c -n -a 'emacs' &
-	#emacsclient --alternate-editor='' --no-wait --create-frame & #--frame-parameters='(quote (name . "Emacs"))' --display $DISPLAY &
-	#sleep 0.5;
+	emacsclient --alternate-editor='' --no-wait --create-frame --eval "(vterm)" --display $DISPLAY &
+	sleep 0.5;
 	#xdotool search --sync --pid "$somepid" windowactivate windowsize "$w" "$h" windowmove "$x" "$y"
-	#wmctrl -r "*dashboard*" -e 0,$aX,$aY,$aW,$aH
+	wmctrl -r "*vterm*" -e 0,$aX,$aY,$aW,$aH
 fi
 
 #    for i in {0..49}; do # timeout
