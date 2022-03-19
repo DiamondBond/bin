@@ -1,0 +1,15 @@
+#!/bin/bash
+# changeBrightness
+
+# Arbitrary but unique message tag
+msgTag="Brightness"
+
+brightnessctl set "$@" > /dev/null
+
+brightnow="$(brightnessctl g)"
+brightmax="$(brightnessctl m)"
+
+brightpercent=$(awk "BEGIN {print ${brightnow}/${brightmax}*100}")
+
+dunstify -a "changeBrightness" -u low -h string:x-dunst-stack-tag:$msgTag \
+	-h int:value:"$brightpercent" "Brightness: ${brightpercent}%"

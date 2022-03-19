@@ -1,0 +1,3 @@
+#!/bin/bash
+killall startdwm
+killall dwm

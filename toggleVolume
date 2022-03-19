@@ -1,0 +1,14 @@
+#!/bin/bash
+dunstctl close-all
+
+TOGGLE=/tmp/volmute
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	pactl set-sink-mute 0 1
+	notify-send 'Audio Muted' &
+else
+	rm $TOGGLE
+	pactl set-sink-mute 0 0
+	notify-send 'Audio Unmuted' &
+fi

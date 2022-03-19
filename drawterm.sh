@@ -12,7 +12,7 @@ read "width" "height" "xpos" "ypos" < <(slop -q -t "0" -lf "$selectionFormat" -b
 
 [[ $width ]] || exit
 
-alacritty &
+xterm &
 pid=$!
 
 xdo hide -p "$pid" -m

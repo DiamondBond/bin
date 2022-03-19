@@ -1,0 +1,13 @@
+#!/bin/bash
+
+TOGGLE=/tmp/toggle_compositing
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    picom --config /home/diamond/.config/picom.conf &
+    notify-send "picom started" &
+else
+    rm $TOGGLE
+    killall picom &
+    notify-send "picom killed" &
+fi

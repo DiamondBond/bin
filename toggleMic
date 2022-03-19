@@ -1,0 +1,14 @@
+#!/bin/bash
+dunstctl close-all
+
+TOGGLE=/tmp/micmute
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	pactl set-source-mute 0 1
+	notify-send "Mic Muted" &
+else
+	rm $TOGGLE
+	pactl set-source-mute 0 0
+	notify-send "Mic Unmuted" &
+fi
