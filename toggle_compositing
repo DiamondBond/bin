@@ -1,17 +1,17 @@
 #!/bin/bash
-#if pgrep -x "picom" > /dev/null
-#then
-#	killall picom
-#	notify-send "compositor killed"
-#else
-#	picom -b --config ~/.config/picom.conf
-#	notify-send "compositor started"
-#fi
-
-if [ "$(gsettings get org.mate.Marco.general compositing-manager)" = "true" ]
+if pgrep -x "picom" > /dev/null
 then
-  gsettings set org.mate.Marco.general compositing-manager false
+	killall picom
+	notify-send "compositor killed"
 else
-  gsettings set org.mate.Marco.general compositing-manager true
+	picom -b --experimental-backends --config ~/.config/picom.conf
+	notify-send "compositor started"
 fi
+
+# if [ "$(gsettings get org.mate.Marco.general compositing-manager)" = "true" ]
+# then
+#   gsettings set org.mate.Marco.general compositing-manager false
+# else
+#   gsettings set org.mate.Marco.general compositing-manager true
+# fi
 

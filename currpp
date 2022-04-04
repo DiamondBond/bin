@@ -1,2 +1,2 @@
 #!/bin/sh
-notify-send "current power profile: $(powerprofilesctl | grep '*')"
+notify-send "$(powerprofilesctl | grep '*')"

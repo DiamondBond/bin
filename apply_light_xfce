@@ -3,7 +3,7 @@
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita" &
 #gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' &
 #xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita" &
-#xfconf-query -c xfwm4 -p /general/theme -s "Adwaita" &
+xfconf-query -c xfwm4 -p /general/theme -s "Adwaita" &
 #xfconf-query -c xfwm4 -p /general/theme -s "TOS-X4" &
 #xfconf-query -c xfwm4 -p /general/theme -s "Zukitre" &
 #xfconf-query -c xfwm4 -p /general/theme -s "Breeze-light" &
@@ -32,3 +32,11 @@ emacsclient --eval '(with-current-buffer (window-buffer)(modus-themes-light))' &
 #sed -i "s/$(grep "<theme>" ~/.config/openbox/rc.xml -A 5 | grep "<name>"| awk -F"[><]" '{print $3}')/$fileName/g" ~/.config/openbox/rc.xml
 #openbox --reconfigure
 
+# Restart plank
+cd /home/diamond/.local/share/plank/themes/
+rm -rf current
+cp -r Adwaita current
+cd ~/
+killall plank
+sleep 0.5
+plank &

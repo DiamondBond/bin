@@ -1,0 +1,44 @@
+#!/bin/bash
+
+operation="list"
+
+list() {
+	for i in $(pactl list sink-inputs short | awk '{ print $3 }'); do
+		client_name=$(pactl list clients short | grep -E "^$i[^0-9]" | awk '{ print $3 }')
+		echo "$i $client_name "
+	done
+}
+
+mute() {
+	client_id_target=$(list | grep -E "(^| )$client_target " | cut -d ' ' -f 1)
+	[ -z "$client_id_target" ] && exit 1
+	pactl set-sink-input-mute $(pactl list sink-inputs short | grep -E "[^0-9]$client_id_target[^0-9]" | awk '{ print $1 }') toggle
+}
+
+main() {
+	case "$operation" in
+		"mute")
+			mute
+			exit 0
+			;;
+		"list")
+			list
+			exit 0
+			;;
+		*)
+			exit 0
+			;;
+	esac
+}
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+		*)
+			operation="mute"
+			client_target="$1"		
+			;;
+	esac
+	shift
+done
+
+main

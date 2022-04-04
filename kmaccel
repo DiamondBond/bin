@@ -17,8 +17,8 @@ ids=$(xinput --list | grep pointer | awk -v search="$SEARCH" \
 
 for i in $ids
 do
-    echo $i
+    #echo $i
     xinput set-prop $i 'libinput Accel Profile Enabled' 0, 1
 done
 
-#notify-send "done"
+#notify-send $i
