@@ -1,10 +1,12 @@
 #!/bin/bash
 
+#feh --bg-scale ~/Pictures/Wallpapers/stars.jpg &
+
 if pgrep -x "picom" > /dev/null
 then
-        killall picom &
+    killall picom &
 	notify-send "picom killed" &
 else
-        picom -b --experimental-backends --config ~/.config/picom.conf &
+    picom -b --experimental-backends --config ~/.config/picom.conf &
 	notify-send "picom started" &
 fi

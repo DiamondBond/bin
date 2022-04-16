@@ -8,4 +8,4 @@ else
     mpd &
 fi
 
-xfce4-terminal -e ncmpcpp
+xterm -e ncmpcpp

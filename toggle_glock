@@ -1,0 +1,13 @@
+#!/bin/bash
+
+TOGGLE=$HOME/.toggle_gnomelock
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    gsettings set org.gnome.desktop.screensaver lock-enabled false
+    notify-send "Lockscreen disabled"
+else
+    rm $TOGGLE
+    gsettings set org.gnome.desktop.screensaver lock-enabled true
+    notify-send "Lockscreen enabled"
+fi
