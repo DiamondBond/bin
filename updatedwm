@@ -1,0 +1,35 @@
+#!/bin/bash
+# Simple script to update dwm
+
+# Remove old backup dir and backup current dir
+cd ~/git/
+rm -rf .dwm-flexipatch
+mv dwm-flexipatch .dwm-flexipatch
+
+# Clone latest dwm-flexipatch
+git clone https://github.com/bakkeby/dwm-flexipatch
+
+# Copy old patches config & flexipatch-finalizer script
+cd dwm-flexipatch
+cp ../.dwm-flexipatch/patches.h .
+cp ../flexipatch-finalizer/flexipatch-finalizer.sh .
+chmod +x flexipatch-finalizer.sh
+
+# Remove old backup dir and backup current dir
+cd ~/src/
+rm -rf .dwm-flexipatch
+mv dwm-flexipatch .dwm-flexipatch
+
+# Generate src dir
+cd ~/git/dwm-flexipatch
+./flexipatch-finalizer.sh -r -d . -o ~/src/dwm-flexipatch
+
+# Prepare src dir
+cd ~/src/dwm-flexipatch
+rm -f flexipatch-finalizer.sh
+# Copy old config and build options
+cp ../.dwm-flexipatch/config.h .
+cp ../.dwm-flexipatch/config.mk .
+
+# Build & Install
+sudo make clean install
