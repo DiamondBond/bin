@@ -1,10 +1,11 @@
+#!/bin/bash
 #id=$(xinput | grep "Razer Viper Mini  " | grep "pointer" | awk '/id=/ { print $7 }')
 #echo $id
 #xinput --set-prop 9 'libinput Accel Profile Enabled' 0, 1
 
 #SEARCH="Razer Razer Viper Mini  "
-#SEARCH=`zenity --list --column="select" --radiolist true "Razer Razer Viper Mini  " false "ASUSTeK ROG KERIS  " --column="Mouse"`
-SEARCH=`zenity --list --column="select" --radiolist true "ASUSTeK ROG KERIS  " false "Razer Razer Viper Mini  " --column="Mouse"`
+#SEARCH=`zenity --list --column="Select" --radiolist true "Razer Razer Viper Mini  " false "ASUSTeK ROG KERIS  " --column="Mouse"`
+SEARCH=`zenity --list --column="Select" --radiolist true "ASUSTeK ROG KERIS  " false "Razer Razer Viper Mini  " --column="Mouse"`
 
 if [ "$SEARCH" = "" ]; then 
     exit 1
