@@ -1,3 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Sync mail
 offlineimap
-notify-send "Mail Synced"
+
+# Notify user
+notify-send "Mail Synced" -t 2500

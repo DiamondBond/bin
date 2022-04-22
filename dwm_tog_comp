@@ -7,6 +7,7 @@ then
     killall picom &
 	notify-send "picom killed" &
 else
-    picom -b --experimental-backends --config ~/.config/picom.conf &
+    #picom -b --experimental-backends --config ~/.config/picom.conf &
+    picom -b --config ~/.config/picom.conf &
 	notify-send "picom started" &
 fi
