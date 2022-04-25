@@ -5,9 +5,9 @@ then
     killall picom &
     sleep 1; picom -b --experimental-backends --config ~/.config/picom.conf &
 	#notify-send "picom killed" &
-	notify-send "successfully restarted compositor" &
+	notify-send "&" &
 else
     #picom -b --config ~/.config/picom.conf &
     picom -b --experimental-backends --config ~/.config/picom.conf &
-	notify-send "successfully restarted compositor" &
+	notify-send "&" &
 fi
