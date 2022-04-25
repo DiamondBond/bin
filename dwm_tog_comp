@@ -1,15 +1,13 @@
 #!/bin/bash
 
-#feh --bg-scale ~/Pictures/Wallpapers/stars.jpg &
-
 if pgrep -x "picom" > /dev/null
 then
     killall picom &
     sleep 1; picom -b --experimental-backends --config ~/.config/picom.conf &
 	#notify-send "picom killed" &
-	#notify-send "successfully restarted compositor" &
+	notify-send "successfully restarted compositor" &
 else
     #picom -b --config ~/.config/picom.conf &
     picom -b --experimental-backends --config ~/.config/picom.conf &
-	#notify-send "successfully restarted compositor" &
+	notify-send "successfully restarted compositor" &
 fi
