@@ -3,10 +3,7 @@
 if pgrep -x "picom" > /dev/null
 then
 	killall picom &
-	sleep 1; picom -b --experimental-backends --config ~/.config/picom.conf &
-	sleep 1; notify-send "`pgrep picom`" &
+	sleep 1; picom -b --experimental-backends --config ~/.config/picom.conf; notify-send "`pgrep picom`" &
 else
-	#picom -b --config ~/.config/picom.conf &
-	picom -b --experimental-backends --config ~/.config/picom.conf &
-	sleep 1; notify-send "`pgrep picom`" &
+	picom -b --experimental-backends --config ~/.config/picom.conf; notify-send "`pgrep picom`" &
 fi
