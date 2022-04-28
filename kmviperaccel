@@ -3,10 +3,9 @@
 #echo $id
 #xinput --set-prop 9 'libinput Accel Profile Enabled' 0, 1
 
-#SEARCH="Razer Razer Viper Mini  "
+SEARCH="Razer Razer Viper Mini  "
 #SEARCH=`zenity --list --column="Select" --radiolist true "Razer Razer Viper Mini  " false "ASUSTeK ROG KERIS  " --column="Mouse"`
 #SEARCH=`zenity --list --column="Select" --radiolist true "ASUSTeK ROG KERIS  " false "Razer Razer Viper Mini  " --column="Mouse"`
-SEARCH="ASUSTeK ROG KERIS  "
 
 if [ "$SEARCH" = "" ]; then 
     exit 1
@@ -21,8 +20,8 @@ ids=$(xinput --list | grep pointer | awk -v search="$SEARCH" \
 
 for i in $ids
 do
-    #echo $i
+    echo $i
     xinput set-prop $i 'libinput Accel Profile Enabled' 0, 1
 done
 
-#notify-send "Killed mouse acceleration"
+notify-send "Killed mouse acceleration"

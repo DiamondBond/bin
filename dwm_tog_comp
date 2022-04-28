@@ -5,8 +5,8 @@ then
 	killall picom &
 	#sleep 1; picom -b --config ~/.config/picom.conf; notify-send "`pgrep picom`" &
 	sleep 0.5; picom -b &
-	sleep 0.5; notify-send "`pgrep picom`" &
+	#sleep 0.5; notify-send "`pgrep picom`" &
 else
 	picom -b &
-	sleep 0.5; notify-send "`pgrep picom`" &
+	#sleep 0.5; notify-send "`pgrep picom`" &
 fi
