@@ -1,0 +1,8 @@
+#!/bin/bash
+SEARCH=`zenity --list --column="Select" --radiolist true "Stop" false "Cancel" --column="Action"`
+
+if [ "$SEARCH" = "" ]; then 
+    exit 1
+fi
+
+virsh shutdown win10 &
