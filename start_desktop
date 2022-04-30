@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if pgrep -x "xfdesktop" > /dev/null
+then
+    #killall xfdesktop &
+    #xfdesktop &
+    echo "xfdesktop already running" > /dev/null
+else
+    xfdesktop &
+fi
+

@@ -1,3 +1,4 @@
+#!/bin/bash
 #id=$(xinput | grep "Razer Viper Mini  " | grep "pointer" | awk '/id=/ { print $7 }')
 #echo $id
 #xinput --set-prop 9 'libinput Accel Profile Enabled' 0, 1
@@ -22,4 +23,4 @@ do
 done
 
 #echo $i
-notify-send "Killed mouse acceleration"
+#notify-send "Killed mouse acceleration"

@@ -1,28 +1,15 @@
 #!/bin/bash
-#id=$(xinput | grep "Razer Viper Mini  " | grep "pointer" | awk '/id=/ { print $7 }')
-#echo $id
-#xinput --set-prop 9 'libinput Accel Profile Enabled' 0, 1
-
-#SEARCH="Razer Razer Viper Mini  "
-#SEARCH=`zenity --list --column="Select" --radiolist true "Razer Razer Viper Mini  " false "ASUSTeK ROG KERIS  " --column="Mouse"`
-#SEARCH=`zenity --list --column="Select" --radiolist true "ASUSTeK ROG KERIS  " false "Razer Razer Viper Mini  " --column="Mouse"`
-SEARCH="ASUSTeK ROG KERIS  "
-
-if [ "$SEARCH" = "" ]; then 
-    exit 1
+if xinput list | grep "ROG KERIS  " > /dev/null
+then
+    sh -c ~/bin/rogkmaccel
+else
+    echo "ROG KERIS not plugged in" > /dev/null
 fi
 
-ids=$(xinput --list | grep pointer | awk -v search="$SEARCH" \
-    '$0 ~ search {match($0, /id=[0-9]+/);\
-                  if (RSTART) \
-                    print substr($0, RSTART+3, RLENGTH-3)\
-                 }'\
-     )
-
-for i in $ids
-do
-    #echo $i
-    xinput set-prop $i 'libinput Accel Profile Enabled' 0, 1
-done
-
-#notify-send "Killed mouse acceleration"
+# Viper Mini
+if xinput list | grep "Viper Mini  " > /dev/null
+then
+    sh -c && ~/bin/kmviperaccel
+else
+    echo "Viper Mini not plugged in" > /dev/null
+fi
