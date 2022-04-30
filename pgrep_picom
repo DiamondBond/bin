@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if pgrep -x "picom" > /dev/null
+then
+    notify-send "Compositor active."
+else
+    notify-send "Compositor inactive."
+fi

@@ -12,3 +12,4 @@ flatpak override --user --filesystem="~/.spotify-adblock/spotify-adblock.so" --f
 echo ""
 echo "DONT FORGET TO REPLACE ~/.spotify-adblock/spotify-adblock.so with the latest spotify-adblock.so file from their github releases page"
 echo ""
+#cp ~/Downloads/spotify-adblock.so ~/.spotify-adblock/spotify-adblock.so
