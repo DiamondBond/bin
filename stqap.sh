@@ -1,5 +1,5 @@
 #!/bin/bash
-interval=0.25
+interval=0.5
 id=$(xdotool search --name "Windows 10 LTSC on QEMU/KVM")
 #echo $id
 xdotool windowactivate $id
