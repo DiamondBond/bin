@@ -1,5 +1,5 @@
 #!/bin/bash
-if xinput list | grep "ROG KERIS  " > /dev/null
+if xinput list | grep pointer | grep "ROG KERIS  " > /dev/null
 then
     sh -c ~/bin/rogkmaccel
 else
@@ -7,9 +7,9 @@ else
 fi
 
 # Viper Mini
-if xinput list | grep "Viper Mini  " > /dev/null
+if xinput list | grep pointer | grep "Viper Mini  " > /dev/null
 then
-    sh -c && ~/bin/kmviperaccel
+    sh -c ~/bin/kmviperaccel
 else
     echo "Viper Mini not plugged in" > /dev/null
 fi
