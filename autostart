@@ -6,10 +6,6 @@ xset b off & # Disables bell
 xset -dpms & # Disables Energy Star features
 xset s off & # Disables screen saver
 
-# Display
-xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
-xrandr --output eDP-1 --set "scaling mode" "Full" &
-
 # Exports
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 export LANG="en_US.UTF-8"
@@ -22,6 +18,10 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1
 export NO_AT_BRIDGE=1
 
+# Display
+xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
+xrandr --output eDP-1 --set "scaling mode" "Full" &
+
 # Emacs
 if pgrep 'emacs' > /dev/null
 then
@@ -31,7 +31,7 @@ else
     emacs --daemon &
 fi
 
-# disable mouse acceleration
+# Disable mouse acceleration
 [ -x ~/bin/kmaccel ] && source ~/bin/kmaccel
 
 # Make Caps an additional Escape
