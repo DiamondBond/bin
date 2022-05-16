@@ -1,10 +1,16 @@
 #!/bin/bash
-TOGGLE=/tmp/max_state
+WINDOW=$(echo $(xwininfo -id $(xdotool getactivewindow) -stats | \
+                egrep '(Width|Height):' | \
+                awk '{print $NF}') | \
+         sed -e 's/ /x/')
+SCREEN=$(xdpyinfo | grep -m1 dimensions | awk '{print $2}')
 
-if [ ! -e $TOGGLE ]; then
-	touch $TOGGLE
-	wmctrl -ir $(xdotool getactivewindow) -b add,maximized_vert,maximized_horz
-else
-	rm $TOGGLE
+# hack, remove last two characters from the string
+SCREEN2=${SCREEN::-2}
+WINDOW2=${WINDOW::-2}
+
+if [ "$WINDOW2" = "$SCREEN2" ]; then
 	wmctrl -ir $(xdotool getactivewindow) -b remove,maximized_vert,maximized_horz
+else
+    wmctrl -ir $(xdotool getactivewindow) -b add,maximized_vert,maximized_horz
 fi
