@@ -1,5 +1,15 @@
 #!/bin/bash
 set -euo pipefail
+# ==========================
+# CANONICAL AUTOSTART SCRIPT
+# ==========================
+# Sets X11 parameters
+# Handles exporting env
+# Sets Display properties
+# Starts Emacs Daemon
+# Makes Caps Escape
+# Neuters ~/.xsession-errors
+# ==========================
 
 # X11
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources & # Merge Xresources

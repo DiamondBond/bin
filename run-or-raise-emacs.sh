@@ -12,8 +12,8 @@ launchcmd="emacsclient -c -n -a 'emacs'"
 
 if [ "x$win" = x ]; then
     # start Emacs
-    #exec /usr/local/bin/emacsclient -c -n -a 'emacs' &
-    launch $launchcmd
+    #launch $launchcmd
+    exec /usr/local/bin/emacsclient -c -n -a 'emacs' &
 else
     # Emacs is already running...
     if [ $win = $(xdotool getwindowfocus) ]; then
