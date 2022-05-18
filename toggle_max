@@ -8,6 +8,10 @@ SCREEN=$(xdpyinfo | grep -m1 dimensions | awk '{print $2}')
 # hack, remove last two characters from the string
 SCREEN2=${SCREEN::-2}
 WINDOW2=${WINDOW::-2}
+echo $SCREEN
+echo $WINDOW
+echo $SCREEN2
+echo $WINDOW2
 
 if [ "$WINDOW2" = "$SCREEN2" ]; then
 	wmctrl -ir $(xdotool getactivewindow) -b remove,maximized_vert,maximized_horz
