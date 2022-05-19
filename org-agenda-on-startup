@@ -1,0 +1,21 @@
+#!/bin/bash
+interval=0.5
+
+# ensure window exists
+emacsclient -c -e '(start-to-org-agenda)' &
+sleep $interval
+
+# focus it
+xdotool windowactivate $id
+sleep $interval
+
+# resize to 1024x1004
+fw=`xdotool getwindowfocus`
+for nw in `xdotool search --classname emacs`; do
+   test "$fw" = "$nw" && xdotool windowsize "$fw" 1024 1004
+done
+
+sleep $interval
+
+# center window
+[[ -x ~/bin/windowcenter ]] && source ~/bin/windowcenter

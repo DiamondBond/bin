@@ -53,3 +53,17 @@ if [ ! -h $HOME/.xsession-errors ]; then
  /bin/rm $HOME/.xsession-errors
  ln -s /dev/null $HOME/.xsession-errors
 fi
+
+# ==========================
+# OPENBOX HOOK
+# ==========================
+# Replace Xfwm4 with Openbox
+#[[ -x ~/bin/openbox-hook-xfwm ]] && source ~/bin/openbox-hook-xfwm
+openbox --replace &
+
+# Start Compositor
+#[[ -x ~/bin/dwm_tog_comp ]] && source ~/bin/dwm_tog_comp
+sleep 1; picom -b &
+
+# Start org-agenda
+[[ -x ~/bin/org-agenda-on-startup ]] && source ~/bin/org-agenda-on-startup

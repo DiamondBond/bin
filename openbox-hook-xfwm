@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Replace WM
+#exec openbox --replace &
+openbox --replace &
