@@ -66,4 +66,4 @@ openbox --replace &
 sleep 1; picom -b &
 
 # Start org-agenda
-[[ -x ~/bin/org-agenda-on-startup ]] && source ~/bin/org-agenda-on-startup
+sleep 0.5; sh -c ~/bin/org-agenda-on-startup
