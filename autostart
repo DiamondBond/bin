@@ -25,6 +25,7 @@ export LANGUAGE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export XDG_SESSION_TYPE=X11
 export GDK_BACKEND=x11
+#export QT_QPA_PLATFORM=xcb
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1
 export NO_AT_BRIDGE=1
@@ -58,9 +59,7 @@ fi
 # OPENBOX HOOK
 # ==========================
 # Replace Xfwm4 with Openbox
-#[[ -x ~/bin/openbox-hook-xfwm ]] && source ~/bin/openbox-hook-xfwm
-openbox --replace &
+#openbox --replace &
 
 # Start Compositor
-#[[ -x ~/bin/dwm_tog_comp ]] && source ~/bin/dwm_tog_comp
-sleep 1; picom -b &
+#sleep 1; picom -b &
