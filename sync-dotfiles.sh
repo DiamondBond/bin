@@ -4,7 +4,7 @@ interval=0.2
 
 # bin
 echo
-echo "========== SYNCING: BIN =========="
+echo "========== SYNC: BIN =========="
 cd ~/bin
 git add -A
 git commit -asm "Automatic sync"
@@ -14,7 +14,7 @@ echo
 
 # dotfiles
 echo
-echo "========== SYNCING: DOTS =========="
+echo "========== SYNC: DOTS =========="
 cp -r ~/.config/openbox ~/git/dotfiles/.config/
 cd ~/git/dotfiles
 ./backup.sh
@@ -26,7 +26,7 @@ echo
 
 # emacs
 echo
-echo "========== SYNCING: EMACS =========="
+echo "========== SYNC: EMACS =========="
 cp ~/.emacs.d/config.org ~/git/emacs/
 cd ~/git/emacs
 git add -A
