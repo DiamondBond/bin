@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+#set -euo pipefail
 interval=0.2
 
 # bin
