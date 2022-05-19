@@ -60,3 +60,6 @@ fi
 # ==========================
 openbox --replace &
 sleep 1; picom -b &
+
+# Send Xfce4-panel to bg
+sleep 2; wmctrl -i -r $ID -b add,below &
