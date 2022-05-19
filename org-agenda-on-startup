@@ -3,13 +3,13 @@ interval=0.5
 
 # ensure window exists
 emacsclient -c -n -e '(start-to-org-agenda)' &
-sleep $interval
+#sleep $interval
 
 # resize to 1024x1004
-fw=`xdotool getwindowfocus`
-for nw in `xdotool search --classname emacs`; do
-   test "$fw" = "$nw" && xdotool windowsize "$fw" 1024 1004
-done
+#fw=`xdotool getwindowfocus`
+#for nw in `xdotool search --classname emacs`; do
+#   test "$fw" = "$nw" && xdotool windowsize "$fw" 1024 1280
+#done
 
 #sleep $interval
 
