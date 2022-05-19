@@ -64,6 +64,3 @@ openbox --replace &
 # Start Compositor
 #[[ -x ~/bin/dwm_tog_comp ]] && source ~/bin/dwm_tog_comp
 sleep 1; picom -b &
-
-# Start org-agenda
-sleep 0.5; sh -c ~/bin/org-agenda-on-startup
