@@ -18,5 +18,5 @@ sunset=$(date --date="$SUNS" +%I:%M\ %P)
 #echo "Sunset for location $location: $sunset"
 
 #notify-send "$sunrise"
-notify-send "Sunrise: $sunrise"
+notify-send "Sunrise: $sunrise" &
 #notify-send "Sunset: $sunset"

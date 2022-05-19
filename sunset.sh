@@ -19,4 +19,4 @@ sunset=$(date --date="$SUNS" +%I:%M\ %P)
 
 #notify-send "$sunrise"
 #notify-send "Sunrise: $sunrise"
-notify-send "Sunset: $sunset"
+notify-send "Sunset: $sunset" &
