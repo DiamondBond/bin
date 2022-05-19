@@ -1,0 +1,2 @@
+#!/bin/bash
+xdotool windowsize `xdotool getactivewindow` 980 1280
