@@ -11,7 +11,7 @@ for nw in `xdotool search --classname emacs`; do
    test "$fw" = "$nw" && xdotool windowsize "$fw" 1024 1004
 done
 
-sleep $interval
+#sleep $interval
 
 # center window
-[[ -x ~/bin/windowcenter ]] && source ~/bin/windowcenter
+#[[ -x ~/bin/windowcenter ]] && source ~/bin/windowcenter
