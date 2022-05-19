@@ -24,6 +24,7 @@ notify-send "Synced dots" &
 
 # emacs
 cp ~/.emacs.d/config.org ~/git/emacs/
+cd ~/git/emacs
 git add -A
 git commit -asm "Automatic sync"
 git push
