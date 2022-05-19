@@ -8,7 +8,7 @@ git add -A
 git commit -asm "Automatic sync"
 git push
 
-echo "==========Synced bin=========="
+echo "========== Synced bin =========="
 
 # dotfiles
 cp -r ~/.config/openbox ~/git/dotfiles/.config/
@@ -18,7 +18,7 @@ git add -A
 git commit -asm "Automatic sync"
 git push
 
-echo "==========Synced dotfiles=========="
+echo "========== Synced dotfiles =========="
 
 # emacs
 cp ~/.emacs.d/config.org ~/git/emacs/
@@ -27,4 +27,4 @@ git add -A
 git commit -asm "Automatic sync"
 git push
 
-echo "==========Synced emacs=========="
+echo "========== Synced emacs =========="
