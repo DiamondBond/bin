@@ -1,32 +1,32 @@
 #!/bin/bash
 set -euo pipefail
-interval=0.5
+interval=0.2
 
-# ~/git/bin
+# bin
 cd ~/bin
 git add -A
 git commit -asm "Automatic sync"
 git push
 
-notify-send "Synced bin " &
 sleep $interval;
+notify-send "Synced bin " &
 
-# ~/git/dotfiles
-cp ~/.config/openbox ~/git/dotfiles/.config/
+# dotfiles
+cp -r ~/.config/openbox ~/git/dotfiles/.config/
 cd ~/git/dotfiles
 ./backup.sh
 git add -A
 git commit -asm "Automatic sync"
 git push
 
-notify-send "Synced dots" &
 sleep $interval;
+notify-send "Synced dots" &
 
-# ~/git/emacs
-cd ~/git/emacs
+# emacs
+cp ~/.emacs.d/config.org ~/git/emacs/
 git add -A
 git commit -asm "Automatic sync"
 git push
 
+sleep $interval;
 notify-send "Synced emacs" &
-#sleep $interval;
