@@ -58,8 +58,5 @@ fi
 # ==========================
 # OPENBOX HOOK
 # ==========================
-# Replace Xfwm4 with Openbox
-#openbox --replace &
-
-# Start Compositor
-#sleep 1; picom -b &
+openbox --replace &
+sleep 1; picom -b &
