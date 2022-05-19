@@ -9,7 +9,7 @@ git commit -asm "Automatic sync"
 git push
 
 sleep $interval;
-notify-send "Synced bin " &
+echo "Synced bin"
 
 # dotfiles
 cp -r ~/.config/openbox ~/git/dotfiles/.config/
@@ -20,7 +20,7 @@ git commit -asm "Automatic sync"
 git push
 
 sleep $interval;
-notify-send "Synced dots" &
+echo "Synced dots"
 
 # emacs
 cp ~/.emacs.d/config.org ~/git/emacs/
@@ -30,4 +30,4 @@ git commit -asm "Automatic sync"
 git push
 
 sleep $interval;
-notify-send "Synced emacs" &
+echo "Synced emacs"
