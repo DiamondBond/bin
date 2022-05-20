@@ -33,7 +33,8 @@ echo
 # emacs
 echo
 echo "========== SYNC: EMACS =========="
-cp ~/.emacs.d/config.org ~/git/emacs/
+cd ~/bin
+./sync-emacs.sh
 cd ~/git/emacs
 git add -A
 git commit -asm "Automatic sync"
