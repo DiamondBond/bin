@@ -66,4 +66,4 @@ sleep 1; picom -b &
 # ==========================
 # PANEL HOOK
 # ==========================
-bash -ic /home/diamond/bin/bottompanel.sh
+source /home/diamond/bin/bottompanel.sh
