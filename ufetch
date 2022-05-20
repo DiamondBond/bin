@@ -1,19 +1,30 @@
 #!/bin/sh
 #
-# ufetch-debian - tiny system info for debian
+# ufetch-arch - tiny system info for arch
 
 ## INFO
 
 # user is already defined
-host="$(hostname)"
-os="Debian $(cat /etc/debian_version)"
+host="$(cat /etc/hostname)"
+os='Arch Linux'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
-packages="$(dpkg -l | grep -c ^i)"
-shell="$(basename "$SHELL")"
+packages="$(pacman -Q | wc -l)"
+shell="$(basename "${SHELL}")"
 
 ## UI DETECTION
 
+parse_rcs() {
+	for f in "${@}"; do
+		wm="$(tail -n 1 "${f}" 2> /dev/null | cut -d ' ' -f 2)"
+		[ -n "${wm}" ] && echo "${wm}" && return
+	done
+}
+
+rcwm="$(parse_rcs "${HOME}/.xinitrc" "${HOME}/.xsession")"
+
+ui='unknown'
+uitype='UI'
 if [ -n "${DE}" ]; then
 	ui="${DE}"
 	uitype='DE'
@@ -26,22 +37,14 @@ elif [ -n "${XDG_CURRENT_DESKTOP}" ]; then
 elif [ -n "${DESKTOP_SESSION}" ]; then
 	ui="${DESKTOP_SESSION}"
 	uitype='DE'
-elif [ -f "${HOME}/.xinitrc" ]; then
-	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+elif [ -n "${rcwm}" ]; then
+	ui="${rcwm}"
 	uitype='WM'
-elif [ -f "${HOME}/.xsession" ]; then
-	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
-	uitype='WM'
-elif [ -h /etc/alternatives/x-session-manager ]; then
-	ui="$(update-alternatives --query x-session-manager | awk -F'/' '/Value/{print $4}')"
-	uitype='DE'
-elif [ -h /etc/alternatives/x-window-manager ]; then
-	ui="$(update-alternatives --query x-window-manager | awk -F'/' '/Value/{print $4}')"
-	uitype='WM'
-else
-	ui='unknown'
-	uitype='UI'
+elif [ -n "${XDG_SESSION_TYPE}" ]; then
+	ui="${XDG_SESSION_TYPE}"
 fi
+
+ui="$(basename "${ui}")"
 
 ## DEFINE COLORS
 
@@ -60,22 +63,21 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${red}"          # labels
-nc="${reset}${bold}${red}"          # user and hostname
-ic="${reset}${bold}${white}"        # info
-c0="${reset}${bold}${red}"          # first color
-c1="${reset}${red}"                 # second color
+lc="${reset}${bold}${blue}"         # labels
+nc="${reset}${bold}${blue}"         # user and hostname
+ic="${reset}"                       # info
+c0="${reset}${blue}"                # first color
 
 ## OUTPUT
 
 cat <<EOF
 
-${c0}    _____    ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}   /  __ \\   ${lc}OS:        ${ic}${os}${reset}
-${c0}  |  /    |  ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}  |  ${c1}\\___-   ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c1}  -_         ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c1}    --_      ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}             ${lc}${uitype}:        ${ic}${ui}${reset}
+${c0}        /\\         ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}       /  \\        ${lc}OS:        ${ic}${os}${reset}
+${c0}      /\\   \\       ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0}     /  __  \\      ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}    /  (  )  \\     ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0}   / __|  |__\\\\    ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}  /.\`        \`.\\   ${lc}${uitype}:        ${ic}${ui}${reset}
 
 EOF
