@@ -9,17 +9,15 @@ inbox_file = "/home/diamond/Dropbox/org/inbox.org"
 r = Rofi()
 
 def todo_to_inbox():
-    todo = r.text_entry("TODO", message="""Usage: 
-    Type full text of org TODO and any tags 
-    eg. Code rofi-org-todo for fast adds to inbox  :mensch:w33:
-    """)
+    todo = r.text_entry("TODO")#, message="""Usage: 
+    #Type full text of org TODO and any tags.""")
     if todo is not None:
         f = open(inbox_file, "a")
         f.write("\n** TODO ")
         f.write(todo + "\n")
         f.write(":PROPERTIES:\n")
         f.write(":CREATED: " + "[" + date.today().strftime("%Y-%m-%d %a") + "]\n")
-        f.write(":END:\n\n")
+        f.write(":END:\n")
         f.close()
 
 todo_to_inbox()
