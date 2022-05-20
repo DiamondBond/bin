@@ -13,7 +13,7 @@ def todo_to_inbox():
     #Type full text of org TODO and any tags.""")
     if todo is not None:
         f = open(inbox_file, "a")
-        f.write("\n** TODO ")
+        f.write("** TODO ")
         f.write(todo + "\n")
         f.write(":PROPERTIES:\n")
         f.write(":CREATED: " + "[" + date.today().strftime("%Y-%m-%d %a") + "]\n")
