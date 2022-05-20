@@ -16,6 +16,7 @@ echo
 echo
 echo "========== SYNC: DOTS =========="
 cp -r ~/.config/openbox ~/git/dotfiles/.config/
+cp ~/.config/gtk-3.0/gtk.css ~/git/dotfiles/.config/gtk-3.0/
 cd ~/git/dotfiles
 ./backup.sh
 git add -A
