@@ -61,9 +61,3 @@ fi
 # ==========================
 openbox --replace &
 sleep 1; picom -b &
-
-
-# ==========================
-# PANEL HOOK
-# ==========================
-source /home/diamond/bin/bottompanel.sh
