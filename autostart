@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 # ==========================
 # CANONICAL AUTOSTART SCRIPT
 # ==========================
@@ -10,6 +9,8 @@ set -euo pipefail
 # Makes Caps Escape
 # Neuters ~/.xsession-errors
 # ==========================
+
+set -euo pipefail
 
 # X11
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources & # Merge Xresources
@@ -60,3 +61,9 @@ fi
 # ==========================
 openbox --replace &
 sleep 1; picom -b &
+
+
+# ==========================
+# PANEL HOOK
+# ==========================
+bash -ic /home/diamond/bin/bottompanel.sh
