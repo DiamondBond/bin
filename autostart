@@ -35,6 +35,15 @@ export NO_AT_BRIDGE=1
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 
+# MPD
+if pgrep 'mpd' > /dev/null
+then
+    echo "mpd running, everything is fine"
+else
+    echo "launching mpd"
+    mpd &
+fi
+
 # Emacs
 if pgrep 'emacs' > /dev/null
 then
