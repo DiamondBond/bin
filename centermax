@@ -1,6 +1,6 @@
 #!/bin/bash
 #xdotool windowsize `xdotool getactivewindow` 2000 1350 #1280 1280
-xdotool windowsize `xdotool getactivewindow` 1761 1350 #1280 1280
+xdotool windowsize `xdotool getactivewindow` 1640 1320 #1280 1280
 #2058 1385
 #2058 1335
 #1680 1280
