@@ -1,3 +1,11 @@
 #!/bin/bash
-virsh start win10 &
-virt-manager --connect qemu:///session --show-domain-console win10 &
+tmp=$(virsh list --all | grep " win10 " | awk '{ print $3}')
+if ([ "x$tmp" == "x" ] || [ "x$tmp" != "xrunning" ])
+then
+    notify-send "Starting VM."
+	virsh start win10 &
+	virt-manager --connect qemu:///system --show-domain-console win10 &
+else
+    notify-send "Connecting to VM."
+	virt-manager --connect qemu:///system --show-domain-console win10 &
+fi
