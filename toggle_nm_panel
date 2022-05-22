@@ -1,0 +1,12 @@
+#!/bin/bash
+TOGGLE=/tmp/toggle_nm_panel
+
+if [ ! -e $TOGGLE ]; then
+	touch $TOGGLE
+	killall nm-applet
+	#nm-applet &
+else
+	rm $TOGGLE
+	killall nm-applet
+	nm-applet &
+fi
