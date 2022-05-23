@@ -1,0 +1,7 @@
+#!/bin/bash
+# https://github.com/djcb/mu/issues/8
+if pgrep -f 'mu server'; then
+    emacsclient -e '(mu4e-update-index)'
+else
+    ~/.emacs.d/straight/repos/mu/build/mu/mu index
+fi
