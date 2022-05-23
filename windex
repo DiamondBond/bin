@@ -1,0 +1,3 @@
+#!/bin/bash
+set -euo pipefail
+winexec C:\\bin\\Index\\Index.exe
