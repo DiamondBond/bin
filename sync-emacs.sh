@@ -9,3 +9,5 @@ cp ~/.emacs.d/config.org ~/git/emacs/
 # user
 cp ~/.emacs.d/userconfig.org ~/git/emacs/
 cp -r ~/.emacs.d/modules ~/git/emacs/
+#cp -r ~/.emacs.d/snippets ~/git/emacs/
+cp -r ~/.emacs.d/resources ~/git/emacs/
