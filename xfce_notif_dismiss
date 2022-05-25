@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# store old location
+eval $(xdotool getmouselocation --shell)
+
+# click notif to dismiss
+xdotool mousemove 2100 50 click 1
+
+# restore mouse location
+xdotool mousemove $X $Y
