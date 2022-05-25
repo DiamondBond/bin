@@ -29,9 +29,10 @@ then
 	echo
 	echo "========== DONE: NEOCITIES =========="
 	echo
-
+	notify-send "Neocities sync done."
 else
 	echo
 	echo "ERROR: emacs is not running, abandoning sync."
 	echo
+	notify-send "Neocities sync failed."
 fi
