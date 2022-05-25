@@ -22,6 +22,8 @@ cp -r ~/.config/openbox ~/git/dotfiles/.config/
 # Themes
 cp -r ~/.themes/win ~/git/dotfiles/.themes/
 cp -r ~/.themes/dolphin ~/git/dotfiles/.themes/
+cp -r ~/.themes/spoon ~/git/dotfiles/.themes/
+cp -r ~/.themes/modus ~/git/dotfiles/.themes/
 # GTK CSS
 cp ~/.config/gtk-3.0/gtk.css ~/git/dotfiles/.config/gtk-3.0/
 # XFCE4
