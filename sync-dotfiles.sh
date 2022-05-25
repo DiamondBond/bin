@@ -15,6 +15,8 @@ echo
 # dotfiles
 echo
 echo "========== SYNC: DOTS =========="
+# Basic
+cp ~/.bashrc ~/git/dotfiles/
 # Openbox
 cp -r ~/.config/openbox ~/git/dotfiles/.config/
 # Themes
