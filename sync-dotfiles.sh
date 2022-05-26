@@ -48,3 +48,4 @@ git commit -asm "Automatic sync"
 git push
 echo "========== DONE: EMACS =========="
 echo
+notify-send "Dotfiles sync done."
