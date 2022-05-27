@@ -9,6 +9,5 @@ cp ~/org/.secrets.el.gpg ~/
 cp ~/org/custom.el ~/.emacs.d/
 cp ~/org/userconfig.org ~/.emacs.d/
 cp ~/org/network-security.data ~/.emacs.d/
-cp ~/org/forge-database.sqlite ~/.emacs.d/
 
 echo "Restore complete."
