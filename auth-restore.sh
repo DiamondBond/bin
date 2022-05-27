@@ -1,11 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
-# Emacs looks for these files in ~/
+# Restore auth info
 cp ~/org/.authinfo.gpg ~/
 cp ~/org/.secrets.el.gpg ~/
 
-# Emacs looks for these files in ~/.emacs.d
+# Restore personal files
 cp ~/org/network-security.data ~/.emacs.d/
 cp ~/org/custom.el ~/.emacs.d/
 cp ~/org/userconfig.org ~/.emacs.d/
