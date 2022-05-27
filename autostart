@@ -70,3 +70,4 @@ fi
 # ==========================
 openbox --replace &
 sleep 1; picom -b &
+hsetroot -solid "#808080" &

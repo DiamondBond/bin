@@ -1,0 +1,20 @@
+#!/bin/bash
+
+TOGGLE=/tmp/switchworkspace
+
+
+# init
+numDesktops=$(xdotool get_num_desktops);
+desktop=$(xdotool get_desktop);
+
+if [ ! -e $TOGGLE ]; then
+	echo $desktop > $TOGGLE
+else
+	rm $TOGGLE
+fi
+
+echo $desktop
+# change desktop
+desktop=$((desktop))
+desktop=$((desktop % numDesktops))
+xdotool set_desktop $desktop
