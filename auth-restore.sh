@@ -10,3 +10,5 @@ cp ~/org/custom.el ~/.emacs.d/
 cp ~/org/userconfig.org ~/.emacs.d/
 cp ~/org/network-security.data ~/.emacs.d/
 cp ~/org/forge-database.sqlite ~/org/
+
+echo "Restore complete."
