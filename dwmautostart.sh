@@ -38,12 +38,13 @@ else
 fi
 
 # Emacs
+notify-send "starting emacs"
 if pgrep 'emacs' > /dev/null
 then
     echo "emacs running, everything is fine"
 else
     echo "launching emacs"
-    source ~/bin/startemacs
+    emacs --daemon
 fi
 
 # Disable mouse acceleration
