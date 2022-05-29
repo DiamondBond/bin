@@ -50,7 +50,8 @@ then
     echo "emacs running, everything is fine"
 else
     echo "launching emacs"
-    emacs --daemon &
+    tangle.sh
+    emacs --daemon
 fi
 
 # Disable mouse acceleration
@@ -70,4 +71,3 @@ fi
 # ==========================
 openbox --replace &
 sleep 1; picom -b &
-hsetroot -solid "#808080" &

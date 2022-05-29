@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# ** Vars
+
+emacs="cd ~/.emacs.d/bin/; ./tangle.sh && emacs --daemon"
+emacsclient="emacsclient -c "
+emacsWindowClass="Emacs"
+
+# ** Functions
+
+function findEmacsWindows {
+
+    for windowID in $(xdotool search --class $emacsWindowClass)
+    do
+        if [[ $(xprop -id $windowID WM_STATE) =~ "window state:" ]]
+        then
+            # Test against excludes
+            if ! [[ $(xprop -id $windowID WM_ICON_NAME) =~ "Matrix" ]]
+            then
+                # No excludes match: return window ID
+                echo $windowID
+            fi
+        fi
+    done
+}
+
+function ifset {
+    # Call like: if ifset command varname
+    #            then
+    #                for i in $varname
+
+    declare -n ref=$2
+
+    ref=$($1)
+
+    [[ $ref ]] && return 0 || return 1
+}
+
+# ** Main
+
+# *** Check for xdotool
+
+if ! type xdotool &>/dev/null  # type works and is a bash builtin
+then
+    message="Install xdotool."
+    echo "$message"
+    notify-send "$message"
+    exit 1
+fi
+
+# *** Get current window
+
+currentWindow=$(xdotool getwindowfocus)
+
+# Get current window class (not classname)
+currentWindowClass=$(xprop -id $currentWindow WM_CLASS | awk '{ print $4 }' | tr -d '"')
+
+# *** Minimize, raise, or run Emacs
+
+if [[ $currentWindowClass = $emacsWindowClass ]]
+then
+    # Emacs is the active window.  Minimize it.
+    $emacsclient -e "(switch-to-buffer \"*scratch*\")"
+    xdotool windowminimize $currentWindow &>/dev/null
+
+else
+    # Emacs is not the active window.  Try to raise an Emacs window.
+    if ifset findEmacsWindows emacsWindows
+    then
+	# Emacs windows found
+	for window in $emacsWindows
+	do
+	    # Restore/unminimize, raise to top, and activate/focus
+	    xdotool windowmap --sync $window windowraise $window windowactivate $window &>/dev/null
+	done
+
+    else
+	# No Emacs windows found.  Run Emacs.
+        if pgrep -f "emacs --daemon"
+        then
+            $emacsclient -c -n
+        else
+            $emacs
+            #$emacsclient -c -n
+        fi
+    fi
+fi
+
+# *** Commit changes to Org files
+
+#$emacsclient -e "(org-save-all-org-buffers)"
