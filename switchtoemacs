@@ -1,25 +1,23 @@
 #!/bin/bash
-# get id of emacs
+
+# get emacs window id
 win=$(xdotool search --onlyvisible --class emacs | head -1)
 
-launch() {
-    echo setsid nohup "$*" &
-    setsid nohup "$*" &
-}
-
-launchcmd="emacsclient -c -n -a 'emacs'"
-
 if [ "x$win" = x ]; then
-    # start Emacs
-    #launch $launchcmd
-    exec /usr/local/bin/emacsclient -c -n -a 'emacs' &
+	if pgrep 'emacs' > /dev/null
+	then
+		echo "emacs running, everything is fine"
+	else
+		echo "launching emacs"
+		tangle.sh
+		emacs --daemon
+	fi
+
+	exec /usr/local/bin/emacsclient -c -n -a 'emacs' &
 else
-    # Emacs is already running...
-    if [ $win = $(xdotool getwindowfocus) ]; then
-        # ...and focused
-        sleep 0.1;
-    else
-        # switch to it
-        xdotool windowactivate $win
-    fi
+	if [ $win = $(xdotool getwindowfocus) ]; then
+		sleep 0.1;
+	else
+		xdotool windowactivate $win
+	fi
 fi
