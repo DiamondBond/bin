@@ -1,14 +1,7 @@
 #!/bin/bash
-# ==========================
-# CANONICAL AUTOSTART SCRIPT
-# ==========================
-# Sets X11 parameters
-# Handles exporting env
-# Sets Display properties
-# Starts Emacs Daemon
-# Makes Caps Escape
-# Neuters ~/.xsession-errors
-# ==========================
+# =====================
+# DWM AUTOSTART SCRIPT
+# =====================
 
 set -euo pipefail
 
@@ -47,13 +40,14 @@ fi
 # Emacs
 if pgrep 'emacs' > /dev/null
 then
-    echo "emacs already running"
+    echo "emacs running, everything is fine"
 else
-    emacs --daemon
+    echo "launching emacs"
+    source ~/bin/startemacs
 fi
 
 # Disable mouse acceleration
-[ -x ~/bin/kmaccel ] && source ~/bin/kmaccel
+source ~/bin/kmaccel
 
 # Make Caps an additional Escape
 setxkbmap -option caps:escape &
@@ -63,7 +57,3 @@ if [ ! -h $HOME/.xsession-errors ]; then
  /bin/rm $HOME/.xsession-errors
  ln -s /dev/null $HOME/.xsession-errors
 fi
-
-# Openbox
-openbox --replace &
-sleep 1; picom -b &

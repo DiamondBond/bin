@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# get firefox window id
+win=$(xdotool search --onlyvisible --class Navigator | head -1)
+
+launch() {
+	echo setsid nohup "$*" &
+	setsid nohup "$*" &
+}
+
+if [ "x$win" = x ]; then
+
+
+	if pgrep 'firefox' > /dev/null
+	then
+		echo "firefox running, everything is fine"
+	else
+		echo "launching firefox"
+
+		$launch firefox
+	fi
+
+	$launch firefox
+else
+	if [ $win = $(xdotool getwindowfocus) ]; then
+		sleep 0.1;
+	else
+		xdotool windowactivate $win
+	fi
+fi

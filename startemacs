@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source /home/diamond/.emacs.d/bin/tangle.sh
+emacs --daemon
