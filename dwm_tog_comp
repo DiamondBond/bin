@@ -3,12 +3,9 @@
 if pgrep -x "picom" > /dev/null
 then
 	killall picom &
-	#sleep 1; picom -b --config ~/.config/picom.conf; notify-send "`pgrep picom`" &
-	sleep 0.1; picom -b &
-	notify-send "Restarted compositor." &
-	#sleep 0.5; notify-send "`pgrep picom`" &
+	#sleep 0.1; picom -b &
+	notify-send "Killed compositor." &
 else
 	picom -b &
 	notify-send "Started compositor." &
-	#sleep 0.5; notify-send "`pgrep picom`" &
 fi
