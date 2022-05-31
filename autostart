@@ -65,5 +65,5 @@ if [ ! -h $HOME/.xsession-errors ]; then
 fi
 
 # Openbox
-openbox --replace &
-sleep 1; picom -b &
+#openbox --replace &
+#sleep 1; picom -b &
