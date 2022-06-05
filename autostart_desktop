@@ -13,7 +13,7 @@
 set -euo pipefail
 
 # X11
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources & # Merge Xresources
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources & # Load Xresources
 xset b off & # Disables bell
 xset -dpms & # Disables Energy Star features
 xset s off & # Disables screen saver
