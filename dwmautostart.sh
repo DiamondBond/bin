@@ -38,7 +38,7 @@ else
 fi
 
 # Emacs
-notify-send "starting emacs"
+#notify-send "starting emacs"
 if pgrep 'emacs' > /dev/null
 then
     echo "emacs running, everything is fine"
@@ -48,7 +48,7 @@ else
 fi
 
 # Disable mouse acceleration
-source ~/bin/kmaccel
+source /home/diamond/bin/kmaccel
 
 # Make Caps an additional Escape
 setxkbmap -option caps:escape &
