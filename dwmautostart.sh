@@ -28,23 +28,31 @@ export NO_AT_BRIDGE=1
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 
+# Gestures
+if pgrep -f 'libinput-gestures' > /dev/null
+then
+	echo "libinput-gestures running, everything is fine"
+else
+	echo "launching libinput-gestures"
+	libinput-gestures &
+fi
+
 # MPD
 if pgrep 'mpd' > /dev/null
 then
-    echo "mpd running, everything is fine"
+	echo "mpd running, everything is fine"
 else
-    echo "launching mpd"
-    mpd &
+	echo "launching mpd"
+	mpd &
 fi
 
 # Emacs
-#notify-send "starting emacs"
 if pgrep 'emacs' > /dev/null
 then
-    echo "emacs running, everything is fine"
+	echo "emacs running, everything is fine"
 else
-    echo "launching emacs"
-    emacs --daemon
+	echo "launching emacs"
+	emacs --daemon
 fi
 
 # Disable mouse acceleration
@@ -54,7 +62,7 @@ source /home/diamond/bin/kmaccel
 setxkbmap -option caps:escape &
 
 # If the .xsession-errors file is not a symbolic link, delete it and create it as such
-if [ ! -h $HOME/.xsession-errors ]; then
- /bin/rm $HOME/.xsession-errors
- ln -s /dev/null $HOME/.xsession-errors
-fi
+# if [ ! -h $HOME/.xsession-errors ]; then
+#  /bin/rm $HOME/.xsession-errors
+#  ln -s /dev/null $HOME/.xsession-errors
+# fi
