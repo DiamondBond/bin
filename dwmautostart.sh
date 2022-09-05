@@ -27,7 +27,7 @@ export NO_AT_BRIDGE=1
 # Display
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
-hsetroot -solid "#9b9b9b" &
+hsetroot -solid "#808080" &
 
 # Gestures
 if pgrep -f 'libinput-gestures' > /dev/null

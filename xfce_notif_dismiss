@@ -4,7 +4,8 @@
 eval $(xdotool getmouselocation --shell)
 
 # click notif to dismiss
-xdotool mousemove 2100 50 click 1
+xdotool mousemove 2100 55 click 1 #right
+#xdotool mousemove 100 50 click 1 #left
 
 # restore mouse location
 xdotool mousemove $X $Y

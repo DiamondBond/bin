@@ -12,20 +12,24 @@ then
 	echo "Purging old files on neocities.org"
 	#echo "Skip deleting index.html as we cannot delete it"
 	#/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete index.html
-	neocities delete resume.html
-	neocities delete emacs.html
+
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete resume.html
+
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete emacs.html
+	#neocities delete resume.html
+	#neocities delete emacs.html
 
 	# generate new html files
 	echo "Compiling new files locally"
-	emacsclient -e "(progn (find-file \"~/Projects/neocities/index.org\") (org-html-export-to-html))"
+	emacsclient -e "(progn (find-file \"~/Dropbox/neocities/index.org\") (org-html-export-to-html))"
 	emacsclient -e "(progn (find-file \"~/git/resume/resume.org\") (org-html-export-to-html))"
 	emacsclient -e "(progn (find-file \"~/.emacs.d/config.org\") (org-html-export-to-html))"
 
 	# upload new html files
 	echo "Uploading new files to neocities.org"
-	neocities upload ~/Projects/neocities/index.html
-	neocities upload ~/git/resume/resume.html
-	neocities upload ~/.emacs.d/emacs.html
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/Projects/neocities/index.html
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/git/resume/resume.html
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/.emacs.d/emacs.html
 	echo
 	echo "========== DONE: NEOCITIES =========="
 	echo
