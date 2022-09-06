@@ -31,6 +31,7 @@ then
 	# upload new html files
 	echo "Uploading new files to neocities.org"
 	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/Projects/neocities/index.html
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/Projects/neocities/books.html
 	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/git/resume/resume.html
 	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/.emacs.d/emacs.html
 	echo
