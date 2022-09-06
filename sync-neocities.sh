@@ -13,6 +13,8 @@ then
 	#echo "Skip deleting index.html as we cannot delete it"
 	#/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete index.html
 
+	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete books.html
+
 	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete resume.html
 
 	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete emacs.html
@@ -22,6 +24,7 @@ then
 	# generate new html files
 	echo "Compiling new files locally"
 	emacsclient -e "(progn (find-file \"~/Dropbox/neocities/index.org\") (org-html-export-to-html))"
+	emacsclient -e "(progn (find-file \"~/Dropbox/neocities/books.org\") (org-html-export-to-html))"
 	emacsclient -e "(progn (find-file \"~/git/resume/resume.org\") (org-html-export-to-html))"
 	emacsclient -e "(progn (find-file \"~/.emacs.d/config.org\") (org-html-export-to-html))"
 
