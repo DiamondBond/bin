@@ -28,6 +28,7 @@ export NO_AT_BRIDGE=1
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 hsetroot -solid "#808080" &
+#feh --bg-scale ~/Pictures/Wallpapers/earth.jpg &
 
 # Gestures
 if pgrep -f 'libinput-gestures' > /dev/null
@@ -60,13 +61,13 @@ fi
 source /home/diamond/bin/kmaccel
 
 # Make Caps an additional Escape
-setxkbmap -option caps:escape &
+#setxkbmap -option caps:escape &
 
 # Start compositor
 source /home/diamond/bin/dwm_tog_comp
 
 # If the .xsession-errors file is not a symbolic link, delete it and create it as such
-# if [ ! -h $HOME/.xsession-errors ]; then
-#  /bin/rm $HOME/.xsession-errors
-#  ln -s /dev/null $HOME/.xsession-errors
-# fi
+if [ ! -h $HOME/.xsession-errors ]; then
+ /bin/rm $HOME/.xsession-errors
+ ln -s /dev/null $HOME/.xsession-errors
+fi

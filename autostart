@@ -56,7 +56,7 @@ fi
 #[ -x ~/bin/kmaccel ] && source ~/bin/kmaccel
 
 # Make Caps an additional Escape
-setxkbmap -option caps:escape &
+#setxkbmap -option caps:escape &
 
 # If the .xsession-errors file is not a symbolic link, delete it and create it as such
 #if [ ! -h $HOME/.xsession-errors ]; then
@@ -66,5 +66,5 @@ setxkbmap -option caps:escape &
 
 # Openbox
 #openbox --replace &
-#sleep 1; picom -b &
+#sleep 0.50; picom -b &
 #hsetroot -solid "#808080" &
