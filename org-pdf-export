@@ -2,12 +2,11 @@
 
 file=$1
 
-#emacs "$file" -batch -load ~/.emacs.d/init.el \
-#    --eval "(progn (org-md-export-to-markdown)(org-latex-export-to-latex))" -nw --kill
-
 filename=$(basename -- "$file")
 filename="${filename%.*}"
 
 pandoc --template eisvogel.latex -i "$filename.tex" -o "$filename.pdf"
 
 rm "$filename.tex"
+
+xdg-open "$filename.pdf" &
