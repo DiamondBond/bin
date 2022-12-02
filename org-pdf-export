@@ -1,12 +1,8 @@
 #!/bin/sh
-
 file=$1
-
 filename=$(basename -- "$file")
 filename="${filename%.*}"
 
 pandoc --template eisvogel.latex -i "$filename.tex" -o "$filename.pdf"
 
 rm "$filename.tex"
-
-xdg-open "$filename.pdf" &
