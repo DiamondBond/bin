@@ -27,8 +27,8 @@ export NO_AT_BRIDGE=1
 # Display
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
-hsetroot -solid "#808080" &
-#feh --bg-scale ~/Pictures/Wallpapers/earth.jpg &
+#hsetroot -solid "#808080" &
+feh --bg-scale ~/Pictures/Wallpapers/earth.jpg &
 
 # Gestures
 if pgrep -f 'libinput-gestures' > /dev/null
@@ -58,7 +58,7 @@ else
 fi
 
 # Disable mouse acceleration
-source /home/diamond/bin/kmaccel
+#source /home/diamond/bin/kmaccel
 
 # Make Caps an additional Escape
 #setxkbmap -option caps:escape &
