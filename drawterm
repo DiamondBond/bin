@@ -23,7 +23,7 @@ if [ "$W" -gt "1" ]; then
     let W=$(( $W / 7 ))-2
     let H=$(( $H / 15 ))-1
 
-    urxvt -g $W"x"$H"+"$X"+"$Y &
+    xterm -g $W"x"$H"+"$X"+"$Y &
     #xfce4-terminal --geometry $W"x"$H"+"$X"+"$Y &
 	#emacsclient -c -n -a 'emacs' &
 	#emacsclient --alternate-editor='' --no-wait --create-frame & #--frame-parameters='(quote (name . "Emacs"))' --display $DISPLAY &

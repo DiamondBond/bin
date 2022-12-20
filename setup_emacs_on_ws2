@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# spwan 1st emacs client
+emacsclient -c -n -a 'emacs'
+sleep 0.5;
+
+# set it up as master on the left
+xdotool windowsize `xdotool getactivewindow` 1315 1375
+xdotool windowmove `xdotool getactivewindow` 00 00
+
+# spawn 2nd emacs client
+emacsclient -c -n -a 'emacs'
+sleep 0.5;
+
+# set it up as slave on the right
+xdotool windowsize `xdotool getactivewindow` 825 1375
+xdotool windowmove `xdotool getactivewindow` 1325 00
+
+# focus it
+xdotool keydown alt
+xdotool key Tab
+sleep 0.5;
+xdotool keyup alt
+sleep 0.5;
+
+# open agenda
+#emacsclient -e '(progn (org-agenda nil "n")(delete-other-windows))'
+
+# open tasks
+emacsclient -e '(tasks-edit)' &
+sleep 0.5;
+emacsclient -e '(org-agenda nil "n")' &
+sleep 0.5;
+
+# send C-x o
+xdotool keydown ctrl
+xdotool key x
+sleep 0.5;
+xdotool keyup ctrl
+xdotool key o
+
+# send C-1 g
+xdotool keydown ctrl
+xdotool key 1
+sleep 0.5;
+xdotool keyup ctrl
+xdotool key g
+
+# focus next
+xdotool keydown alt
+xdotool key Tab
+sleep 0.5;
+xdotool keyup alt
+
+# send C-1 n
+xdotool keydown ctrl
+xdotool key 1
+sleep 0.5;
+xdotool keyup ctrl
+xdotool key n
