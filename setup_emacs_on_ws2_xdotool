@@ -19,14 +19,36 @@ xdotool windowmove `xdotool getactivewindow` 1325 00
 # focus 1st emacs client
 emacsclient -e '(other-frame 1)'
 
-# open tasks & agenda
+# open tasks
 emacsclient -e '(tasks-edit)'
 emacsclient -e '(org-agenda nil "n")'
-emacsclient -e '(other-window 1)'
-emacsclient -e '(golden-ratio 1)'
+#emacsclient -e '(other-window 1)'
+#emacsclient -e '(golden-ratio)'
 
-# focus 2nd emacs client
+# send C-x o
+xdotool keydown ctrl
+xdotool key x
+sleep 0.5;
+xdotool keyup ctrl
+xdotool key o
+
+# send C-1 g
+xdotool keydown ctrl
+xdotool key 1
+sleep 0.5;
+xdotool keyup ctrl
+xdotool key g
+
+# focus next
+#xdotool keydown alt
+#xdotool key Tab
+#sleep 0.5;
+#xdotool keyup alt
 emacsclient -e '(other-frame 1)'
 
-# open notes
-emacsclient -e '(notes-edit)'
+# send C-1 n
+xdotool keydown ctrl
+xdotool key 1
+sleep 0.5;
+xdotool keyup ctrl
+xdotool key n
