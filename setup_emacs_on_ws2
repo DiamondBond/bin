@@ -5,6 +5,7 @@ emacsclient -c -n -a 'emacs'
 sleep 0.5;
 
 # set it up as master on the left
+# nogaps
 xdotool windowsize `xdotool getactivewindow` 1315 1375
 xdotool windowmove `xdotool getactivewindow` 00 00
 
@@ -13,6 +14,7 @@ emacsclient -c -n -a 'emacs'
 sleep 0.5;
 
 # set it up as slave on the right
+# nogaps
 xdotool windowsize `xdotool getactivewindow` 825 1375
 xdotool windowmove `xdotool getactivewindow` 1325 00
 
@@ -21,12 +23,15 @@ emacsclient -e '(other-frame 1)'
 
 # open tasks & agenda
 emacsclient -e '(tasks-edit)'
-emacsclient -e '(org-agenda nil "n")'
-emacsclient -e '(other-window 1)'
-emacsclient -e '(golden-ratio 1)'
+#emacsclient -e '(org-agenda nil "n")'
+#emacsclient -e '(other-window 1)'
+#emacsclient -e '(golden-ratio 1)'
 
 # focus 2nd emacs client
 emacsclient -e '(other-frame 1)'
 
 # open notes
 emacsclient -e '(notes-edit)'
+
+# focus 1st emacs client
+emacsclient -e '(other-frame 1)'
