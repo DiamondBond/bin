@@ -29,6 +29,7 @@ xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xa
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 #hsetroot -solid "#808080" &
 feh --bg-scale ~/Pictures/Wallpapers/earth.jpg &
+#feh --bg-scale ~/Pictures/Wallpapers/cat_leaves.png &
 
 # Gestures
 if pgrep -f 'libinput-gestures' > /dev/null

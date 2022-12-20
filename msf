@@ -1,0 +1,5 @@
+#!/bin/bash
+#emacsclient -c -n -a 'emacs' &
+sleep 0.5
+xdotool windowsize `xdotool search --onlyvisible --class emacs` 1065 1350 &
+xdotool windowmove `xdotool search --onlyvisible --class emacs` 15 15 &
