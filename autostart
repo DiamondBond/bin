@@ -13,7 +13,7 @@
 set -euo pipefail
 
 # X11
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources & # Merge Xresources
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources & # Merge Xresources
 xset b off & # Disables bell
 xset -dpms & # Disables Energy Star features
 xset s off & # Disables screen saver
@@ -27,22 +27,22 @@ xset s off & # Disables screen saver
 #export XDG_SESSION_TYPE=X11
 #export GDK_BACKEND=x11
 #export QT_QPA_PLATFORM=xcb
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCALE_FACTOR=1
-export NO_AT_BRIDGE=1
+#export QT_AUTO_SCREEN_SCALE_FACTOR=0
+#export QT_SCALE_FACTOR=1
+#export NO_AT_BRIDGE=1
 
 # Display
 xinput | grep 'ELAN224A' | grep 'pointer' | grep -Po 'id=\d+' | cut -d= -f2 | xargs xinput disable &
 xrandr --output eDP-1 --set "scaling mode" "Full" &
 
 # MPD
-if pgrep 'mpd' > /dev/null
-then
-    echo "mpd running, everything is fine"
-else
-    echo "launching mpd"
-    mpd &
-fi
+#if pgrep 'mpd' > /dev/null
+#then
+#    echo "mpd running, everything is fine"
+#else
+#    echo "launching mpd"
+#    mpd &
+#fi
 
 # Emacs
 if pgrep 'emacs' > /dev/null

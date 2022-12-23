@@ -13,11 +13,11 @@ then
 	#echo "Skip deleting index.html as we cannot delete it"
 	#/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete index.html
 
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete books.html
+	neocities delete books.html
 
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete resume.html
+	neocities delete resume.html
 
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities delete emacs.html
+	neocities delete emacs.html
 	#neocities delete resume.html
 	#neocities delete emacs.html
 
@@ -30,10 +30,10 @@ then
 
 	# upload new html files
 	echo "Uploading new files to neocities.org"
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/Projects/neocities/index.html
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/Projects/neocities/books.html
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/git/resume/resume.html
-	/home/diamond/.local/share/gem/ruby/3.0.0/bin/neocities upload ~/.emacs.d/emacs.html
+	neocities upload ~/Projects/neocities/index.html
+	neocities upload ~/Projects/neocities/books.html
+	neocities upload ~/git/resume/resume.html
+	neocities upload ~/.emacs.d/emacs.html
 	echo
 	echo "========== DONE: NEOCITIES =========="
 	echo
