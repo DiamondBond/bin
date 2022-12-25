@@ -1,0 +1,3 @@
+#!/bin/bash
+xrandr --output eDP-1 --set "scaling mode" "Full"
+xrandr --output eDP-1 --mode 2160x1440

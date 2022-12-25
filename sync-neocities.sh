@@ -27,6 +27,8 @@ then
 	emacsclient -e "(progn (find-file \"~/Dropbox/neocities/books.org\") (org-html-export-to-html))"
 	emacsclient -e "(progn (find-file \"~/git/resume/resume.org\") (org-html-export-to-html))"
 	emacsclient -e "(progn (find-file \"~/.emacs.d/config.org\") (org-html-export-to-html))"
+	emacsclient -e "(progn (find-file \"~/Dropbox/neocities/digital.org\") (org-html-export-to-html))"
+	emacsclient -e "(progn (find-file \"~/Dropbox/neocities/blog.org\") (org-html-export-to-html))"
 
 	# upload new html files
 	echo "Uploading new files to neocities.org"
@@ -34,6 +36,8 @@ then
 	neocities upload ~/Projects/neocities/books.html
 	neocities upload ~/git/resume/resume.html
 	neocities upload ~/.emacs.d/emacs.html
+	neocities upload ~/Dropbox/neocities/digital.html
+	neocities upload ~/Dropbox/neocities/blog.html
 	echo
 	echo "========== DONE: NEOCITIES =========="
 	echo
