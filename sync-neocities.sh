@@ -32,8 +32,8 @@ then
 
 	# upload new html files
 	echo "Uploading new files to neocities.org"
-	neocities upload ~/Projects/neocities/index.html
-	neocities upload ~/Projects/neocities/books.html
+	neocities upload ~/Dropbox/neocities/index.html
+	neocities upload ~/Dropbox/neocities/books.html
 	neocities upload ~/git/resume/resume.html
 	neocities upload ~/.emacs.d/emacs.html
 	neocities upload ~/Dropbox/neocities/digital.html
