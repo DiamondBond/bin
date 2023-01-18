@@ -38,6 +38,7 @@ then
 	neocities upload ~/.emacs.d/emacs.html
 	neocities upload ~/Dropbox/neocities/digital.html
 	neocities upload ~/Dropbox/neocities/blog.html
+	neocities upload ~/Dropbox/neocities/blog2.html
 	echo
 	echo "========== DONE: NEOCITIES =========="
 	echo
